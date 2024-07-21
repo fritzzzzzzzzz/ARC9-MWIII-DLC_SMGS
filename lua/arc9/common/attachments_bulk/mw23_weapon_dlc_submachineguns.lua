@@ -35,7 +35,7 @@ ATT.CompactName = "20R Mag"
 ATT.Icon = Material("entities/attachs/wsp_platform/atts_icons/cod2023_sm_uzi_smag.png")
 
 ATT.SortOrder = 5
-ATT.Description = [[20-round magazines. Increased handling speed in exchange for ammuntion capacity.]]
+ATT.Description = [[20-round magazines. Increased handling speed in exchange for ammo capacity.]]
 ATT.MenuCategory = "ARC9 - MW2019 Attachments"
 ATT.Free = false
 
@@ -335,10 +335,401 @@ ATT.Category = {"cod2023_ram9_mag"}
 
 ATT.ClipSize = 40
 ATT.SpreadMoveAdd = 0.22
-ATT.AimDownSightsTimeAdd = 0.5
+ATT.AimDownSightsTimeAdd = 0.3
 ATT.ReloadTimeMult = 1.08
 ATT.SprintToFireTimeAdd = 0.05
 
 ATT.ActivateElements = {"mag_xmag", "mag_none"}
 
 ARC9.LoadAttachment(ATT, "cod2023_ram9_magext")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.PrintName = "40-Round Magazines"	
+ATT.CompactName = "40R Ext."
+ATT.Icon = Material("entities/attachs/wsp_platform/atts_icons/cod2023_sm_uzi_smag.png")
+
+ATT.SortOrder = 5
+ATT.Description = [[40-round magazines, at the cost of slower handling speed and reload time in exchange for increased round capacity.]]
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/wm_jup_jp32_pi_mpapa9_xmag_9p_lod0.mdl"
+ATT.DropMagazineModel = "models/weapons/cod2023/attachs/weapons/cmmg/cmmg_mag40_world.mdl"
+ATT.BoneMerge = true
+
+ATT.Category = {"cod2023_mpapa9_mag"}
+ATT.ActivateElements = {"mag_none", "mag_xmag"}
+
+ATT.ClipSize = 40
+ATT.SpreadMoveAdd = 0.19
+ATT.AimDownSightsTimeAdd = 0.2
+ATT.ReloadTimeMult = 1.05
+ATT.SprintToFireTimeAdd = 0.06
+ATT.BulletBones = {
+    [1] = {"j_ammo_01"},
+    [2] = {"j_ammo_02"},
+    [3] = {"j_ammo_03"},
+    [4] = {"j_ammo_04"},
+    [5] = {"j_ammo_05"},
+    [6] = {"j_ammo_06"},
+    [7] = {"j_ammo_07"},
+    [8] = {"j_ammo_08"},
+    [9] = {"j_ammo_09"},
+    [10] = {"j_ammo_10"},
+    [11] = {"j_ammo_11"},
+    [12] = {"j_ammo_12"},
+	[13] = {"j_ammo_13"},
+	[14] = {"j_ammo_14"},
+	[15] = {"j_ammo_15"},
+	[16] = {"j_ammo_16"},
+	[17] = {"j_ammo_17"},
+	[18] = {"j_ammo_18"},
+	[19] = {"j_ammo_19"},
+	[20] = {"j_ammo_20"},
+	[21] = {"j_ammo_21"},
+	[22] = {"j_ammo_22"},
+	[23] = {"j_ammo_23"},
+	[24] = {"j_ammo_24"},
+	[25] = {"j_ammo_25"},
+	[26] = {"j_ammo_26"},
+	[27] = {"j_ammo_27"},
+	[28] = {"j_ammo_28"},
+	[29] = {"j_ammo_29"},
+	[30] = {"j_ammo_30"},
+}
+
+ARC9.LoadAttachment(ATT, "cod2023_mpapa9_extendedmagazine")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.PrintName = "20-Round Magazines"	
+ATT.CompactName = "20R Mag"
+ATT.Icon = Material("entities/attachs/wsp_platform/atts_icons/cod2023_sm_uzi_smag.png")
+
+ATT.SortOrder = 5
+ATT.Description = [[20-round magazines. Increased handling speed in exchange for ammo capacity.]]
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/wm_jup_jp32_pi_mpapa9_smag_9p_lod0.mdl"
+ATT.DropMagazineModel = "models/weapons/cod2023/attachs/weapons/pmx/wm_jup_jp03_sm_pmike_mag_20_9p_000_lod0_world.mdl"
+ATT.BoneMerge = true
+
+ATT.Category = {"cod2023_mpapa9_mag"}
+
+ATT.ClipSize = 20
+
+ATT.ActivateElements = {"mag_smag", "mag_none"}
+
+ATT.RecoilMult = 0.9
+ATT.ReloadTimeMult = 0.95
+ATT.SpreadMoveAdd = 0.2
+ATT.VisualRecoilMult = 1.134
+ATT.AimDownSightsTimeAdd = -0.15
+ATT.SprintToFireTimeAdd = -0.2
+ATT.BulletBones = {
+    [1] = {"j_ammo_01"},
+    [2] = {"j_ammo_02"},
+    [3] = {"j_ammo_03"},
+    [4] = {"j_ammo_04"},
+    [5] = {"j_ammo_05"},
+    [6] = {"j_ammo_06"},
+    [7] = {"j_ammo_07"},
+    [8] = {"j_ammo_08"},
+    [9] = {"j_ammo_09"},
+    [10] = {"j_ammo_10"},
+    [11] = {"j_ammo_11"},
+    [12] = {"j_ammo_12"},
+	[13] = {"j_ammo_13"},
+	[14] = {"j_ammo_14"},
+	[15] = {"j_ammo_15"},
+	[16] = {"j_ammo_16"},
+	[17] = {"j_ammo_17"},
+	[18] = {"j_ammo_18"},
+	[19] = {"j_ammo_19"},
+	[20] = {"j_ammo_20"},
+	[21] = {"j_ammo_21"},
+	[22] = {"j_ammo_22"},
+	[23] = {"j_ammo_23"},
+	[24] = {"j_ammo_24"},
+	[25] = {"j_ammo_25"},
+	[26] = {"j_ammo_26"},
+	[27] = {"j_ammo_27"},
+	[28] = {"j_ammo_28"},
+	[29] = {"j_ammo_29"},
+	[30] = {"j_ammo_30"},
+}
+
+ARC9.LoadAttachment(ATT, "cod2023_mpapa9_smallmagazine")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.PrintName = "Light Barrel"
+ATT.CompactName = "Light Barrel"
+ATT.Description = [[Light Barrel]]
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_bar_light_lod0.png", "mips smooth")
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_bar_light_lod0.mdl"
+ATT.BoneMerge = false
+
+ATT.SortOrder = 0
+ATT.Category = "cod2023_mp9_barrel"
+ATT.ActivateElements = {"foregrip_none","barrel_none","muzzle_none"}
+
+ATT.MuzzleDevice = true -- set to true if you want to use this to emit particles
+ATT.MuzzleDevice_Priority = 1
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["muzzle"] then
+        model:SetBodygroup(1,1)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(1.57, 0, 0),
+        },
+    }
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.SprintToFireTimeMult = 1.05
+	ATT.AimDownSightsTimeMult = 1.05
+	ATT.RecoilMult = 0.95
+	ATT.RangeMaxMult = 1.1
+	ATT.RangeMinMult = 1.1
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = 238 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = 0.022
+	ATT.RangeMinMult = 1.28
+	ATT.RangeMaxMult = 1.28
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_barrel_light")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.PrintName = "Long Barrel"
+ATT.CompactName = "Long Barrel"
+ATT.Description = [[Long Barrel]]
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_bar_long_lod0.png", "mips smooth")
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_bar_long_lod0.mdl"
+ATT.BoneMerge = false
+
+ATT.SortOrder = 0
+ATT.Category = "cod2023_mp9_barrel"
+ATT.ActivateElements = {"foregrip_none","barrel_none","muzzle_none"}
+
+ATT.MuzzleDevice = true -- set to true if you want to use this to emit particles
+ATT.MuzzleDevice_Priority = 1
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["muzzle"] then
+        model:SetBodygroup(1,1)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(5.93, 0, 0),
+        },
+    }
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.SprintToFireTimeMult = 1.05
+	ATT.AimDownSightsTimeMult = 1.05
+	ATT.RecoilMult = 0.95
+	ATT.RangeMaxMult = 1.1
+	ATT.RangeMinMult = 1.1
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = 238 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = 0.022
+	ATT.RangeMinMult = 1.28
+	ATT.RangeMaxMult = 1.28
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_barrel_long")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.PrintName = "Heavy Barrel"
+ATT.CompactName = "Heavy Barrel"
+ATT.Description = [[Heavy Barrel]]
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_bar_hvy_lod0.png", "mips smooth")
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_bar_hvy_lod0.mdl"
+ATT.BoneMerge = false
+
+ATT.SortOrder = 0
+ATT.Category = "cod2023_mp9_barrel"
+ATT.ActivateElements = {"foregrip_none","barrel_none","muzzle_none"}
+
+ATT.MuzzleDevice = true -- set to true if you want to use this to emit particles
+ATT.MuzzleDevice_Priority = 1
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["muzzle"] then
+        model:SetBodygroup(1,1)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(5, 0, 0),
+        },
+    }
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.SprintToFireTimeMult = 1.05
+	ATT.AimDownSightsTimeMult = 1.05
+	ATT.RecoilMult = 0.95
+	ATT.RangeMaxMult = 1.1
+	ATT.RangeMinMult = 1.1
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = 238 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = 0.022
+	ATT.RangeMinMult = 1.28
+	ATT.RangeMaxMult = 1.28
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_barrel_heavy")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.PrintName = "Lopper LX-D Stock"
+ATT.CompactName = "Full Stock"
+ATT.Description = [[Heavy duty fixed stock provides reliable stability while aiming.]]
+ATT.SortOrder = 1
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_stock_full_lod0.png", "mips smooth")
+ATT.AutoStats = true
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_stock_full_lod0.mdl"
+ATT.BoneMerge = true
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Category = {"cod2023_mp9_stock"}
+ATT.ActivateElements = {"stock_none","stock"}
+
+if !warzonestats then -- Regular Stats
+	ATT.RecoilKickMult = 0.8
+	ATT.RecoilkMult = 0.8
+	ATT.DeployTimeMult = 1.15
+	ATT.AimDownSightsTimeMult = 1.1
+	ATT.VisualRecoilMult = 0.9
+	ATT.RecoilModifierCapMult = 0.5
+else -- Warzone Stats
+	ATT.AimDownSightsTimeAdd = 0.017
+	ATT.SprintToFireTimeAdd = -0.084
+	ATT.RecoilMult = 0.9
+	ATT.VisualRecoilMult = 0.9
+	ATT.SpeedMult = 0.9
+	ATT.SpeedSightsMult = 0.81
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_stock_full")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.PrintName = "No Stock"
+ATT.CompactName = "No Stock"
+ATT.Description = [[The ultimate run and gun modification when agility is more important than precision. Removing the stock greatly increases movement.]]
+ATT.SortOrder = 1
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons//icon_attachment_p11_sm_uzulu_stockno_v0.png", "mips smooth")
+ATT.AutoStats = true
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_stock_adapter_lod0.mdl"
+ATT.BoneMerge = true
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Category = {"cod2023_mp9_stock"}
+ATT.ActivateElements = {"stock_none","stock"}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 0.85
+	ATT.RecoilKickMult = 1.25
+	ATT.DeployTimeMult = 0.85
+else -- Warzone Stats
+	ATT.AimDownSightsTimeAdd = -0.037
+	ATT.VisualRecoilMult = 1.3
+	ATT.RecoilMult = 1.29
+	ATT.SpreadAddMove = -0.0053
+	ATT.SpeedMult = 1.04
+	ATT.SpeedMultSights = 1.2
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_stock_no")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.PrintName = "Modus 30 Stock"
+ATT.CompactName = "Skeleton Stock"
+ATT.Description = [[Ultralight stock speeds up weapon handling and movement at the expense of aiming stability.]]
+ATT.SortOrder = 1
+
+ATT.Icon = Material("entities/attachs/ar/m13/cod2019_ar_m13_lightstock.png", "mips smooth")
+ATT.AutoStats = true
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_stock_tac_lod0.mdl"
+ATT.BoneMerge = true
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Category = {"cod2023_mp9_stock"}
+ATT.ActivateElements = {"stock_none","stock"}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 0.9
+	ATT.DeployTimeMult = 0.9
+	ATT.RecoilMult = 1.15
+else -- Warzone Stats
+	ATT.AimDownSightsTimeAdd = -0.014
+	ATT.SpeedMultSights = 1.17
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_stock_skel")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.PrintName = "Ripper Light Stock"
+ATT.CompactName = "Tactical Stock"
+ATT.Description = [[Tactical stock streamlined for close quarters combat. Gets you on target faster.]]		
+ATT.SortOrder = 1
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_stock_tac_lod0.png", "mips smooth")
+ATT.AutoStats = true
+ATT.Free = false
+
+ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_stock_no_lod0.mdl"
+ATT.BoneMerge = true
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Category = {"cod2023_mp9_stock"}
+ATT.ActivateElements = {"stock_none","stock"}
+
+if !warzonestats then -- Regular Stats
+	ATT.SprintToFireTimeMult = 0.9
+	ATT.AimDownSightsTimeMult = 0.9
+	ATT.RecoilMult = 1.1
+else -- Warzone Stats
+	ATT.AimDownSightsTimeAdd = -0.02
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_mp9_stock_tac")

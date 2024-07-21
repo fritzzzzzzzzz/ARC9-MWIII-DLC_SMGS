@@ -450,7 +450,7 @@ SWEP.Animations = {
         },
     },
     ["reload_xmag_fast_empty"] = {
-        Source = "reload_xmag_empty",
+        Source = "reload_xmag_fast_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
 		RefillProgress = 0.7,
@@ -464,7 +464,7 @@ SWEP.Animations = {
         },
     },
     ["reload_smag"] = {
-        Source = "reload_smag2",
+        Source = "reload_smag",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
 		RefillProgress = 0.7,
@@ -478,7 +478,7 @@ SWEP.Animations = {
         },
     },
     ["reload_smag_empty"] = {
-        Source = "reload_smag2_empty",
+        Source = "reload_smag_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
 		RefillProgress = 0.7,
@@ -492,7 +492,7 @@ SWEP.Animations = {
         },
     },
     ["reload_smag_fast"] = {
-        Source = "reload_smag2_fast",
+        Source = "reload_smag_fast",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
 		RefillProgress = 0.675,
@@ -507,7 +507,7 @@ SWEP.Animations = {
         },
     },
     ["reload_smag_fast_empty"] = {
-        Source = "reload_smag2_fast_empty",
+        Source = "reload_smag_fast_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
 		RefillProgress = 0.7,
@@ -531,6 +531,17 @@ SWEP.Animations = {
             { t = 0.7, lhik = 1, rhik = 1 },
         },
     },
+	["ready_nostock"] = {
+        Source = "draw_nostock",
+		MinProgress = 0.7,
+		FireASAP = true,
+        IKTimeLine = {
+            { t = 0, lhik = 1, rhik = 0 },
+            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.5, lhik = 0, rhik = 0 },
+            { t = 0.7, lhik = 1, rhik = 1 },
+        },
+    },
     ["draw"] = {
         Source = "draw_short",
 		MinProgress = 0.5,
@@ -539,18 +550,12 @@ SWEP.Animations = {
             { t = 0, lhik = 0, rhik = 0 },
             { t = 0.5, lhik = 1, rhik = 1 },
         },
-        EventTable = {
-            {s = path .. "wfoly_plr_sm_mpapa7_raise.ogg", t = 0/30},
-        },
     },
     ["holster"] = {
         Source = "holster",
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 1 },
             { t = 0.4, lhik = 0, rhik = 1 },
-        },
-        EventTable = {
-            {s = path .. "wfoly_plr_sm_mpapa7_drop.ogg", t = 0/30},
         },
     },
     ["idle"] = {
@@ -594,6 +599,17 @@ SWEP.Animations = {
     },
     ["inspect"] = {
         Source = "lookat01",
+        MinProgress = 0.1,
+        FireASAP = true,
+        IKTimeLine = {
+            { t = 0, lhik = 1, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
+            { t = 0.8, lhik = 0, rhik = 0 },
+            { t = 0.9, lhik = 1, rhik = 1 },
+        },
+    },
+	["inspect_smag"] = {
+        Source = "lookat01_smag",
         MinProgress = 0.1,
         FireASAP = true,
         IKTimeLine = {
@@ -660,7 +676,7 @@ SWEP.Animations = {
 
 -------------------------- ATTACHMENTS
 
---- 50 & 60 Round Mags ---
+--- 20 & 40 Round Mags ---
 local Translate_XMag = {
     ["reload"] = "reload_xmag",
     ["reload_empty"] = "reload_xmag_empty",
@@ -669,16 +685,22 @@ local Translate_XMag_Fast = {
     ["reload"] = "reload_xmag_fast",
     ["reload_empty"] = "reload_xmag_fast_empty",
 }
-local Translate_Smag = {
+
+local Translate_SMG = {
     ["reload"] = "reload_smag",
     ["reload_empty"] = "reload_smag_empty",
+	["inspect"] = "inspect_smag"
 }
-local Translate_Smag_Fast = {
+local Translate_SMG_Fast = {
     ["reload"] = "reload_smag_fast",
     ["reload_empty"] = "reload_smag_fast_empty",
+	["inspect"] = "inspect_smag"
 }
 
---- Fast & Tac. Sprint ---
+local Translate_NoStock = {
+    ["ready"] = "ready_nostock",
+}
+
 local Translate_Fast = {
     ["reload"] = "reload_fast",
     ["reload_empty"] = "reload_fast_empty",
@@ -695,35 +717,50 @@ SWEP.Hook_TranslateAnimation = function(wep, anim)
     local speedload = wep:HasElement("perk_speedreload")
     local super_sprint = wep:HasElement("perk_super_sprint")
     local xmag = wep:HasElement("mag_xmag")
-    local smag = wep:HasElement("mag_smag")
+	local smg = wep:HasElement("mag_smag")
+	    local nos = wep:HasElement("stock_none")
 
-    if xmag and speedload and Translate_Xmag_Fast[anim] then
-        return Translate_Xmag_Fast[anim]
-    elseif xmag and Translate_Smag[anim] then
-        return Translate_Smag[anim]
-    elseif super_sprint and Translate_TacSprint[anim] then
+    if super_sprint and Translate_TacSprint[anim] then
         return Translate_TacSprint[anim]
+	elseif nos and Translate_NoStock[anim] then
+        return Translate_NoStock[anim]
     end
 
     if speedload then
-        if xmag then
-            if Translate_XMag_Fast[anim] then
-				return Translate_XMag_Fast[anim]
+        if smg then
+            if Translate_SMG_Fast[anim] then
+                return Translate_SMG_Fast[anim]
             end
+        elseif xmagslrg then
+            if Translate_XMagslrg_Fast[anim] then
+                return Translate_XMagslrg_Fast[anim]
+            end
+		elseif xmag then
+            if Translate_XMag_Fast[anim] then
+                return Translate_XMag_Fast[anim]
+            end 
         else
             if Translate_Fast[anim] then
                 return Translate_Fast[anim]
             end
         end
     else 
-        if xmag then
+        if smg then
+            if Translate_SMG[anim] then
+                return Translate_SMG[anim]
+            end
+        elseif xmagslrg then
+            if Translate_XMagslrg[anim] then
+                return Translate_XMagslrg[anim]
+            end
+		elseif xmag then
             if Translate_XMag[anim] then
                 return Translate_XMag[anim]
             end
         end
     end
 	
-    --wep.MWHybridSwitching = nil
+	    --wep.MWHybridSwitching = nil
     if anim == "switchsights" then
         if wep:HasElement("hybrid_scope") then
             wep.MWHybridSwitching = true
@@ -832,10 +869,11 @@ SWEP.Attachments = {
     { -- 2
         PrintName = ARC9:GetPhrase("mw19_category_barrel"),
 		DefaultIcon = Material("entities/defattachs/barrel-ar.png", "mips smooth"),
-        Category = "",
+        Category = "cod2023_mp9_barrel",
         Bone = "tag_barrel_attach",
         Pos = Vector(0, 0, 0),
-		Icon_Offset = Vector(5, 0, 0),
+		Ang = Angle(0, -90, 0),
+		Icon_Offset = Vector(0, -5, 0),
     },
     { -- 3
         PrintName = ARC9:GetPhrase("mw19_category_laser"),
@@ -857,7 +895,7 @@ SWEP.Attachments = {
     { -- 5
         PrintName = ARC9:GetPhrase("mw19_category_stock"),
 		DefaultIcon = Material("entities/defattachs/stock-ar.png", "mips smooth"),
-        Category = {""},
+        Category = {"cod2023_mp9_stock"},
         Bone = "tag_stock_attach",
         Pos = Vector(0, 0, 0),
     },
@@ -877,7 +915,7 @@ SWEP.Attachments = {
         PrintName = ARC9:GetPhrase("mw19_category_magazine"),
 		DefaultIcon = Material("entities/defattachs/magazine-ar.png", "mips smooth"),
 		Bone = "tag_mag_attach",
-        Category = {""},
+        Category = {"cod2023_mpapa9_mag"},
         Pos = Vector(0, 0, -5),
 		Icon_Offset = Vector(0.5, 0, 0),
     },
