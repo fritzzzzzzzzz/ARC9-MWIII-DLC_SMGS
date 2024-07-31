@@ -262,8 +262,8 @@ SWEP.AnimDraw = false
 
 -------------------------- EFFECTS
 
-SWEP.MuzzleParticle = "AC_muzzle_rifle_fp"
-SWEP.AfterShotParticle = "AC_muzzle_smoke_barrel"
+SWEP.MuzzleParticle = "muzzleflash_smg"
+SWEP.AfterShotParticle = "barrel_smoke"
 SWEP.MuzzleEffectQCA = 1
 SWEP.ProceduralViewQCA = 1
 
@@ -278,7 +278,7 @@ SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
 SWEP.ShouldDropMag = false
 SWEP.ShouldDropMagEmpty = false
-SWEP.DropMagazineModel = "models/weapons/cod2019/mags/w_smg_mp7_mag.mdl" -- Set to a string or table to drop this magazine when reloading.
+SWEP.DropMagazineModel = "models/weapons/cod2023/attachs/weapons/mp9/wm_jup_jp32_pi_mpapa9_mag9p_lod0_world.mdl" -- Set to a string or table to drop this magazine when reloading.
 SWEP.DropMagazineSounds = {
 "weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_smg_metal_concrete_01.ogg",
 "weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_smg_metal_concrete_02.ogg",
@@ -353,83 +353,83 @@ SWEP.Animations = {
         Source = "reload",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.65,
+		RefillProgress = 0.50,
 		FireASAP = true,
-		MagSwapTime = 3.5,
+		MagSwapTime = 3.0,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.8, lhik = 1, rhik = 1 },
         },
     },
     ["reload_empty"] = {
         Source = "reload_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.6,
 		FireASAP = true,
 		DropMagAt = 0.6,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.85, lhik = 1, rhik = 1 },
         },
     },
     ["reload_fast"] = {
         Source = "reload_fast",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.5,
 		FireASAP = true,
 		MagSwapTime = 1.5,
 		DropMagAt = 0.5,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
+            { t = 0.1, lhik = 0, rhik = 0 },
+            { t = 0.6, lhik = 0, rhik = 0 },
+            { t = 0.75, lhik = 1, rhik = 1 },
         },
     },
     ["reload_fast_empty"] = {
         Source = "reload_fast_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.65,
 		FireASAP = true,
 		DropMagAt = 0.5,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.1, lhik = 0, rhik = 0 },
+            { t = 0.6, lhik = 0, rhik = 0 },
+            { t = 0.65, lhik = 1, rhik = 1 },
         },
     },
     ["reload_xmag"] = {
         Source = "reload_xmag",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.6,
 		FireASAP = true,
 		MagSwapTime = 3.5,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.85, lhik = 1, rhik = 1 },
         },
     },
     ["reload_xmag_empty"] = {
         Source = "reload_xmag_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.69,
 		FireASAP = true,
 		DropMagAt = 0.65,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
             { t = 0.95, lhik = 1, rhik = 1 },
         },
@@ -438,7 +438,7 @@ SWEP.Animations = {
         Source = "reload_xmag_fast",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.675,
+		RefillProgress = 0.6,
 		FireASAP = true,
 		MagSwapTime = 1.5,
 		DropMagAt = 0.5,
@@ -453,71 +453,71 @@ SWEP.Animations = {
         Source = "reload_xmag_fast_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.65,
 		FireASAP = true,
 		DropMagAt = 0.65,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.6, lhik = 0, rhik = 0 },
+            { t = 0.7, lhik = 1, rhik = 1 },
         },
     },
     ["reload_smag"] = {
         Source = "reload_smag",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.5,
 		FireASAP = true,
 		MagSwapTime = 3.5,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.85, lhik = 1, rhik = 1 },
         },
     },
     ["reload_smag_empty"] = {
         Source = "reload_smag_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.6,
 		FireASAP = true,
 		DropMagAt = 0.65,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
+            { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.8, lhik = 1, rhik = 1 },
         },
     },
     ["reload_smag_fast"] = {
         Source = "reload_smag_fast",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.675,
+		RefillProgress = 0.5,
 		FireASAP = true,
 		MagSwapTime = 1.5,
 		DropMagAt = 0.5,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
+            { t = 0.1, lhik = 0, rhik = 0 },
+            { t = 0.6, lhik = 0, rhik = 0 },
+            { t = 0.75, lhik = 1, rhik = 1 },
         },
     },
     ["reload_smag_fast_empty"] = {
         Source = "reload_smag_fast_empty",
 		MinProgress = 0.925,
 		PeekProgress = 0.875,
-		RefillProgress = 0.7,
+		RefillProgress = 0.6,
 		FireASAP = true,
 		DropMagAt = 0.475,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
+            { t = 0.1, lhik = 0, rhik = 0 },
+            { t = 0.5, lhik = 0, rhik = 0 },
+            { t = 0.6, lhik = 1, rhik = 1 },
         },
     },
     ["ready"] = {
@@ -789,13 +789,13 @@ SWEP.AttachmentTableOverrides = {
     SprintAng = Angle(0, 0, 0)
     },
     ["cod2019_griptape_01"] = {
-		Model = "models/weapons/cod2019/attachs/weapons/mp7/attachment_vm_sm_mpapa7_pistolgrip_tape.mdl",
+		Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_pgrip_tac_lod0.mdl",
     },
     ["cod2019_griptape_02"] = {
-		Model = "models/weapons/cod2019/attachs/weapons/mp7/attachment_vm_sm_mpapa7_pistolgrip_tape.mdl",
+		Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_pgrip_wgt_lod0.mdl",
     },
     ["cod2019_griptape_03"] = {
-		Model = "models/weapons/cod2019/attachs/weapons/mp7/attachment_vm_sm_mpapa7_pistolgrip_tape.mdl",
+	    Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_pgrip_slv_lod0.mdl",
     },
 }
 
