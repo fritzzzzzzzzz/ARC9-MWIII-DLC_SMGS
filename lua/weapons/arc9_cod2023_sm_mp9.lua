@@ -230,8 +230,8 @@ SWEP.CrouchAng = Angle(0, 0, -5)
 SWEP.SprintPos = Vector(6, 0, -2)
 SWEP.SprintAng = Angle(0, 0, 25)
 
-SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(13, 42.5, 4.5)
+SWEP.CustomizeAng = Angle(90, 0, -1.3)
+SWEP.CustomizePos = Vector(12, 42.5, 4.5)
 SWEP.CustomizeRotateAnchor = Vector(13, -2.75, -4)
 SWEP.CustomizeSnapshotFOV = 65
 SWEP.CustomizeSnapshotPos = Vector(-1, 20, 2.5)
@@ -290,7 +290,8 @@ SWEP.DropMagazineSounds = {
 SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
 SWEP.DropMagazineTime = 0.4
 SWEP.DropMagazineQCA = 3
-SWEP.DropMagazineAng = Angle(0, -90, -90)
+SWEP.DropMagazineAng = Angle(0, 180, -90)
+SWEP.DropMagazinePos = Vector(35, 10, 20)
 
 -------------------------- SOUNDS
 
@@ -321,10 +322,10 @@ SWEP.EnterSightsSound = path .. "weap_sm_mpapa7_ads_up.ogg"
 SWEP.ExitSightsSound = path .. "weap_sm_mpapa7_ads_down.ogg"
 
 SWEP.BulletBones = {
-    [1] = "j_bullet01",
-    [2] = "j_bullet02",
-	[3] = "j_bullet03",
-	[4] = "j_bullet04",
+    [0] = {"j_ammo_01"},
+	[1] = {"j_ammo_03"},
+	[2] = {"j_ammo_02"},
+	[3] = {"j_ammo_04"},
 }
 
 --SWEP.ReloadHideBonesFirstPerson = true
@@ -528,7 +529,8 @@ SWEP.Animations = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.2, lhik = 0, rhik = 0 },
             { t = 0.5, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 1, rhik = 1 },
+            { t = 0.7, lhik = 0, rhik = 1 },
+            { t = 0.82, lhik = 1, rhik = 1 },
         },
     },
 	["ready_nostock"] = {
@@ -537,9 +539,10 @@ SWEP.Animations = {
 		FireASAP = true,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.5, lhik = 0, rhik = 0 },
+            { t = 0.2, lhik = 1, rhik = 0 },
+            { t = 0.5, lhik = 1, rhik = 0 },
             { t = 0.7, lhik = 1, rhik = 1 },
+			{ t = 0.8, lhik = 1, rhik = 1 },
         },
     },
     ["draw"] = {
@@ -605,7 +608,7 @@ SWEP.Animations = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.8, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
+            { t = 1.0, lhik = 1, rhik = 1 },
         },
     },
 	["inspect_smag"] = {
@@ -873,7 +876,7 @@ SWEP.Attachments = {
         Bone = "tag_barrel_attach",
         Pos = Vector(0, 0, 0),
 		Ang = Angle(0, -90, 0),
-		Icon_Offset = Vector(0, -5, 0),
+		Icon_Offset = Vector(0, -2.2, 0),
     },
     { -- 3
         PrintName = ARC9:GetPhrase("mw19_category_laser"),
@@ -939,13 +942,13 @@ SWEP.Attachments = {
         PrintName = ARC9:GetPhrase("mw19_category_perk"),
         Category = {"cod2019_perks","cod2019_perks_soh"},
         Bone = "tag_attachments",
-        Pos = Vector(0.5, 0, -2.1),
+        Pos = Vector(4.7, 0, -2.8),
     },
 	
 	-- Unofficial
     { -- 11
         PrintName = ARC9:GetPhrase("mw19_category_receiver"),
-        Category = "",
+        Category = "cod2023_mp9_receiver",
         Bone = "tag_attachments",
         Pos = Vector(0, 0, 0),
 		Icon_Offset = Vector(3, 0, -0.25),
@@ -969,19 +972,19 @@ SWEP.Attachments = {
     },
     { -- 14
         PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/smg_mp7_decal_a.mdl",
+        StickerModel = "models/weapons/cod2023/stickers/smg_mp9_decal_a.mdl",
         Category = "stickers",
         Bone = "tag_cosmetic",
         Pos = Vector(3, 0, 3),
-		Hidden = true,
+		Hidden = false,
     },
     { -- 15
         PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/smg_mp7_decal_b.mdl",
+        StickerModel = "models/weapons/cod2023/stickers/smg_mp9_decal_b.mdl",
         Category = "stickers",
         Bone = "tag_cosmetic",
         Pos = Vector(1, 0, 3),
-		Hidden = true,
+		Hidden = false,
     },
     { -- 16
         PrintName = ARC9:GetPhrase("mw19_category_sticker"),

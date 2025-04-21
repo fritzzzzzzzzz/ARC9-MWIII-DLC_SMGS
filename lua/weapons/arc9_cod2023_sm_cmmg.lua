@@ -8,8 +8,10 @@ SWEP.LoadoutImage = "entities/loadout/arc9_cod2019_ar_m4.png"
 SWEP.Base = "arc9_cod2019_base"
 
 SWEP.Spawnable = true
+SWEP.NotForNPCs = false
 SWEP.Category = "ARC9 - MWIII"
 SWEP.SubCategory = ARC9:GetPhrase("mw19_category_weapon_smg") or "Submachine Guns"
+SWEP.ARC9WeaponCategory = 3
 
 SWEP.PrintName = ARC9:GetPhrase("") or "Superi 46"
 
@@ -231,7 +233,7 @@ SWEP.MovingAng = Angle(0, 0, -10)
 SWEP.CrouchPos = Vector(-1, -0.5, -1)
 SWEP.CrouchAng = Angle(0, 0, -5)
 
-SWEP.SprintPos = Vector(0, 0, -1.5)
+SWEP.SprintPos = Vector(3, 0, -1.5)
 SWEP.SprintAng = Angle(0, 0, 25)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
@@ -306,7 +308,7 @@ SWEP.ShootSoundSilenced = "COD2023.HRM9.Fire.S"
 SWEP.ShootSoundSilencedIndoor = "COD2023.HRM9.Fire.S"
 
 -- Non-Silenced
-SWEP.LayerSound = "Layer_Pistol.Outside"
+SWEP.LayerSound = "Layer_AR.Outside"
 SWEP.DistantShootSound = "Distant_SMG.Outside"
 -- Inside
 SWEP.LayerSoundIndoor = "Layer_Pistol.Inside"
@@ -345,6 +347,15 @@ SWEP.BulletBones = {
 	[19] = {"j_ammo_19"},
 	[20] = {"j_ammo_20"},
 	[21] = {"j_ammo_21"},
+	[22] = {"j_ammo_22"},
+	[23] = {"j_ammo_23"},
+	[24] = {"j_ammo_24"},
+	[25] = {"j_ammo_25"},
+	[26] = {"j_ammo_26"},
+	[27] = {"j_ammo_27"},
+	[28] = {"j_ammo_28"},
+	[29] = {"j_ammo_29"},
+	[30] = {"j_ammo_30"},
 }
 
 SWEP.HideBones  = {
@@ -436,6 +447,7 @@ SWEP.Animations = {
             { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.5, lhik = 0, rhik = 0 },
             { t = 0.6, lhik = 0, rhik = 0 },
+		    { t = 0.7, lhik = 0, rhik = 0 },
             { t = 0.85, lhik = 1, rhik = 1 },
         },
 	        EventTable = {
@@ -563,8 +575,8 @@ SWEP.Animations = {
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.65, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 1, rhik = 1 },
+            { t = 0.6, lhik = 0, rhik = 0 },
+		    { t = 0.7, lhik = 1, rhik = 0 },
         },
     },
     -- ["1_ready"] = {
@@ -654,7 +666,8 @@ SWEP.Animations = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.8, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
+			{ t = 0.9, lhik = 0, rhik = 0 },
+            { t = 0.92, lhik = 1, rhik = 1 },
         },
     },
 	["inspect_xmag"] = {
@@ -665,7 +678,8 @@ SWEP.Animations = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.8, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
+			{ t = 0.9, lhik = 0, rhik = 0 },
+            { t = 0.92, lhik = 1, rhik = 1 },
         },
     },
 	["inspect_smag"] = {
@@ -676,7 +690,8 @@ SWEP.Animations = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.1, lhik = 0, rhik = 0 },
             { t = 0.8, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
+			{ t = 0.9, lhik = 0, rhik = 0 },
+            { t = 0.92, lhik = 1, rhik = 1 },
         },
     },
     ["bash"] = {
@@ -915,32 +930,13 @@ SWEP.AttachmentElements = {
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
-	local attached = data.elements
-    if wep:HasElement("sight_m13") then 
-	model:SetBodygroup(1,2)
-	model:SetBodygroup(7,2)
-	elseif wep:HasElement("optic_scope") then
-	model:SetBodygroup(1,3)
-	model:SetBodygroup(7,2)
+    if wep:HasElement("stock_retract") then 
+	model:SetBodygroup(3,1) 
+	model:SetBodygroup(6,0) 
 	end
-	
-    if wep:HasElement("barrel_custom") and wep:HasElement("carry_handle") then 
-		model:SetBodygroup(7,2)
-	elseif wep:HasElement("barrel_custom") then
-	    model:SetBodygroup(7,2)
-    elseif wep:HasElement("carry_handle") then
-		model:SetBodygroup(1,3)
-		model:SetBodygroup(7,0)
-	end
-	
-    -- if wep:HasElement("cod2019_stock_none") then model:SetBodygroup(4,0) end
-
-    local camo = 0
-    if attached["universal_camo"] then
-        camo = 1
-    end
-    model:SetSkin(camo)
+	--if wep:HasElement("stock_none") then model:SetBodygroup(4,1) end
 end
+
 
 SWEP.Attachments = {
     { -- 1
@@ -956,10 +952,10 @@ SWEP.Attachments = {
     { -- 2
         PrintName = ARC9:GetPhrase("mw19_category_barrel"),
 		DefaultIcon = Material("entities/defattachs/barrel-ar.png", "mips smooth"),
-        Category = "",
+        Category = "cod2023_cod2019_m4_barrel",
         Bone = "tag_barrel_attach",
-        Pos = Vector(0, 0, 0),
-		Icon_Offset = Vector(6.4, 0, 0),
+        Pos = Vector(0, 0, -0.109),
+		Icon_Offset = Vector(0, 0, 0),
     },
     { -- 3
         PrintName = ARC9:GetPhrase("mw19_category_laser"),
@@ -998,7 +994,7 @@ SWEP.Attachments = {
 		DefaultIcon = Material("entities/defattachs/grip.png", "mips smooth"),
         Category = "cod2019_grip",
         Bone = "tag_grip_attach",
-        Pos = Vector(2, 0, 0),
+        Pos = Vector(2, -0.04, -0.08),
         Ang = Angle(0, 0, 180),
 		InstalledElements = {"rail_grip"},
 		ExcludeElements = {"barrel_custom2"},
@@ -1012,7 +1008,7 @@ SWEP.Attachments = {
 		Bone = "tag_mag_attach",
         Category = {"cod2023_pcharlie9_magext"},
         Pos = Vector(0, 0, 0),
-		Icon_Offset = Vector(-0.2, 0, -1),
+		Icon_Offset = Vector(-0.2, 0, 0),
     },
     { -- 8
         PrintName = ARC9:GetPhrase("mw19_category_ammo"),
@@ -1020,7 +1016,7 @@ SWEP.Attachments = {
         Bone = "tag_mag_attach",
 		Category = {"cod2019_ammo"},
 		Pos = Vector(-1.5, 0, 0),
-		Icon_Offset = Vector(-0.4, 0, -1),
+		Icon_Offset = Vector(-0.4, 0, 0),
     },
     { -- 9
         PrintName = ARC9:GetPhrase("mw19_category_reargrip"),
@@ -1035,7 +1031,7 @@ SWEP.Attachments = {
         Category = {"cod2019_perks","cod2019_perks_soh","cod2019_perks_burst"},
         Bone = "tag_attachments",
         Pos = Vector(3.5, 0, -3.5),
-		Icon_Offset = Vector(-5, 0, 1.5),
+		Icon_Offset = Vector(-0.3, -0.6, 0.3),
     },
 	
 	-- Unofficial
@@ -1113,24 +1109,13 @@ SWEP.Attachments = {
 		Icon_Offset = Vector(-7.5, 0, 4),
 		CosmeticOnly = true,
     },
-    { -- 20
-        PrintName = "GL",
-        Category = {"cod2019_m203"},
-        Bone = "tag_attachments",
-        Pos = Vector(11.5, 0, -2.45),
-        Ang = Angle(0, 180, 0),
-		Hidden = true,
-    },
 }
 
 SWEP.GripPoseParam = 0.4
 SWEP.GripPoseParam2 = 0
-SWEP.CodAngledGripPoseParam = 40
---SWEP.CodStubbyGripPoseParam = 26
 SWEP.CodStubbyGripPoseParam = 29
 SWEP.CodStubbyTallGripPoseParam = 26
---SWEP.CodStubbyTallGripPoseParam = 15
---SWEP.CodStubbyTallGripPoseParam = 0
+SWEP.CodAngledGripPoseParam = 40
 
 -- Warzone-esque Stats; Add here to change only when using Warzone Stats variable.
 if GetConVar("arc9_mw19_stats_warzone"):GetBool() then

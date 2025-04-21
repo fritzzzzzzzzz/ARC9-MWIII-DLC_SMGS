@@ -32,7 +32,7 @@ ATT = {}
 
 ATT.PrintName = "20-Round Magazines"	
 ATT.CompactName = "20R Mag"
-ATT.Icon = Material("entities/attachs/.png")
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/wm_jup_jp32_pi_mpapa9_smag_9p_lod0.png")
 
 ATT.SortOrder = 5
 ATT.Description = [[20-round magazines. Increased handling speed in exchange for ammo capacity.]]
@@ -121,7 +121,7 @@ ATT = {}
 
 ATT.PrintName = "40-Round Magazines"	
 ATT.CompactName = "40R Ext."
-ATT.Icon = Material("entities/attachs/.png")
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/wm_jup_jp32_pi_mpapa9_xmag_9p_lod0.png")
 
 ATT.SortOrder = 5
 ATT.Description = [[40-round magazines, at the cost of slower handling speed and reload time in exchange for increased round capacity.]]
@@ -287,7 +287,7 @@ ATT = {}
 
 ATT.PrintName = "30 Round Colt Mags"	
 ATT.CompactName = "30R Colt"
-ATT.Icon = Material("entities/attachs/.png")
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/wm_jup_jp32_pi_mpapa9_smag_9p_lod0.png")
 
 ATT.SortOrder = 5
 ATT.Description = [[30-round magazines. Slightly faster handling speed in exchange for decreased round capacity.]]
@@ -519,7 +519,7 @@ ATT = {}
 
 ATT.MenuCategory = "ARC9 - MW2019 Attachments"
 ATT.PrintName = "SYN9 Long Barrel"
-ATT.CompactName = "Long Barrel."
+ATT.CompactName = "Long Barrel"
 ATT.Description = [[A long SMG barrel for engaging targets with confidence at close to mid-range.]]
 
 ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/vm_jup_jp32_pi_mpapa9_bar_long_lod0.png", "mips smooth")
@@ -748,13 +748,13 @@ ATT = {}
 ATT.MenuCategory = "ARC9 - MW2019 Attachments"
 ATT.PrintName = "EFT LR"
 ATT.CompactName = "EFT Lower Receiver"
-ATT.Description = ""
+ATT.Description = "A scavengers delight."
 ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/mp9_kitbash_tarkov_rail.mdl"
 ATT.BoneMerge = true
-
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons/mp9_kitbash_tarkov_rail.png", "mips smooth")
 ATT.SortOrder = 0
 ATT.Category = "cod2023_mp9_receiver"
-ATT.ActivateElements = {"lower_none"}
+ATT.ActivateElements = {"body_none"}
 
 ATT.DrawFunc = function(swep, model, wm)
     if swep:GetElements()["optic"] then
@@ -763,3 +763,542 @@ ATT.DrawFunc = function(swep, model, wm)
 end
 
 ARC9.LoadAttachment(ATT, "cod2023_mp9_eft_receiver")
+---------------------------------------------------------------------------------------
+ATT = {}
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.PrintName = "No Stock"
+ATT.CompactName = "No Stock"
+ATT.Description = [[The ultimate run and gun modification when agility is more important than precision. Removing the stock greatly increases movement.]]
+ATT.SortOrder = 1
+
+ATT.Icon = Material("entities/attachs/dlc_smgs/atts_icons//icon_attachment_p11_sm_uzulu_stockno_v0.png", "mips smooth")
+ATT.AutoStats = true
+ATT.Free = false
+
+--ATT.Model = "models/weapons/cod2023/attachs/weapons/mp9/vm_jup_jp32_pi_mpapa9_stock_adapter_lod0.mdl"
+ATT.BoneMerge = true
+
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Category = {"cod2023_p50_stock"}
+ATT.ActivateElements = {"stock_none","stock"}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 0.85
+	ATT.RecoilKickMult = 1.25
+	ATT.DeployTimeMult = 0.85
+else -- Warzone Stats
+	ATT.AimDownSightsTimeAdd = -0.037
+	ATT.VisualRecoilMult = 1.3
+	ATT.RecoilMult = 1.29
+	ATT.SpreadAddMove = -0.0053
+	ATT.SpeedMult = 1.04
+	ATT.SpeedMultSights = 1.2
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_p50_stock_no")
+---------------------------------------------------------------------------------------
+//////////////////////////////////////////////// -- SUPERI 46
+/////////////////////////// -- Barrel
+/////////////// -- cod2019_m4a1_barrel_short
+ATT = {}
+
+ATT.PrintName = "FSS 11.5\" Commando"
+ATT.Description = "Short, compact barrel sacrifices accuracy and range for speed and agility. Good for clearing out tight spaces."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barshort.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 1
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_custom"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/attachment_vm_ar_mike4_shortbarrel.mdl"
+ATT.BoneMerge = false
+
+ATT.MuzzleDevice_Priority = 5
+ATT.MuzzleDevice = true
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+        model:SetBodygroup(2,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(2,1)
+    end
+	
+	if swep:GetElements()["optic"] then
+        model:SetBodygroup(2,1)
+    end
+	
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(2,2)
+    end
+
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(1,1)
+    end
+
+    if swep:GetElements()["grip_angled"] then 
+     model:SetPoseParameter("gripstyle", 1)
+    elseif swep:GetElements()["grip"] then 
+     model:SetPoseParameter("gripstyle", 2)
+	 else
+	 model:SetPoseParameter("gripstyle", 0)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(-1.2, 0, 0),
+        },
+        [3] = { -- Laser
+            Pos = Vector(1, 0.12, 0.12),
+            Ang = Angle(0,0,180),
+		},
+	    [6] = { -- Grips
+            Pos = Vector(3, 0, -0.55),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.28),
+    Ang = Angle(-0.033, -0.8, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+
+if !warzonestats then -- Regular Stats
+	ATT.DrawTimeMult = 0.85
+	ATT.HolsterTimeMult = 0.85
+	ATT.AimDownSightsTimeMult = 0.83
+	ATT.RangeMaxMult = 0.9
+	ATT.RangeMinMult = 0.9
+	ATT.RecoilMult = 1.1
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = -255 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = -0.037
+	ATT.VisualRecoilMult = 1.15
+	ATT.RecoilMult = 1.15
+	ATT.SpreadMultMove = 0.95
+	ATT.RangeMinMult = 0.8
+	ATT.RangeMaxMult = 0.8
+	ATT.SpeedMult = 1.02
+	ATT.SpeedSightsMult = 1.08
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_short")
+
+/////////////// -- cod2019_m4a1_barrel_mid
+ATT = {}
+
+ATT.PrintName = "Stock M16 Grenadier"
+ATT.Description = "Heavy duty 20 inch barrel greatly increases muzzle velocity and extends range. M203 handguard adds substantial weight for smoother handling."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barmid.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 2
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_m16","barrel_custom"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/attachment_vm_ar_mike4_mike203barrel.mdl"
+ATT.BoneMerge = false
+ATT.LHIK = true
+ATT.LHIK_Priority = 10
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+        model:SetBodygroup(2,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(1,1)
+    end
+    if swep:GetElements()["optic"] then
+        model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(2,2)
+    end
+	
+    if swep:GetElements()["grip_angled"] then 
+     model:SetPoseParameter("gripstyle", 1)
+    elseif swep:GetElements()["grip"] then 
+     model:SetPoseParameter("gripstyle", 2)
+	 else
+	 model:SetPoseParameter("gripstyle", 0)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(9.2, 0, 0),
+        },
+        [3] = { -- Laser
+            Pos = Vector(1, 0.12, 0.12),
+            Ang = Angle(0,0,180),
+		},
+	    [6] = { -- Grips
+            Pos = Vector(4, 0, -0.55),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.28),
+    Ang = Angle(-0.033, -0.6, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 1.07
+	ATT.DeployTimeMult = 1.1
+	ATT.RangeMaxMult = 1.1
+	ATT.RangeMinMult = 1.1
+	ATT.SpreadMult = 0.95
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = 485 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = 0.06
+	ATT.VisualRecoilMult = 0.83
+	ATT.RecoilMult = 0.83
+	ATT.SpreadMultMove = 1.2
+	ATT.RangeMinMult = 1.4
+	ATT.RangeMaxMult = 1.4
+	ATT.SpeedMult = 0.96
+	ATT.SpeedSightsMult = 0.93
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_mid")
+
+/////////////// -- cod2019_m4a1_barrel_v3
+ATT = {}
+
+ATT.PrintName = "FSS 14.5\" Tac Lite"
+ATT.Description = "Lightweight shroud and large bore barrel reduce weight for improved handling at the cost of muzzle velocity."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barrel_v03.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 3
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_custom"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/attachment_vm_ar_mike4_barrel_v3_alt.mdl"
+ATT.BoneMerge = false
+ATT.LHIK = false
+ATT.LHIK_Priority = 10
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+        model:SetBodygroup(1,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(1,1)
+    end
+		
+	if swep:GetElements()["optic"] then
+        model:SetBodygroup(1,1)
+    end
+	
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(1,2)
+    end
+
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(2,1)
+    end
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(1.3, 0, -0.03),
+        },
+        [3] = { -- Laser
+            Pos = Vector(1, 0.2, 0.10),
+            Ang = Angle(0,0,180),
+		},
+	    [6] = { -- Grips
+            Pos = Vector(3.7, 0, -0.35),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.28),
+    Ang = Angle(-0.033, -0.63, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 0.93
+	ATT.SprintToFireTimeMult = 0.93
+	ATT.PhysBulletMuzzleVelocityMult = 0.95
+	ATT.RangeMaxMult = 0.95
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = -127 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = -0.016
+	ATT.RangeMinMult = 0.9
+	ATT.RangeMaxMult = 0.9
+end
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_v3")
+
+/////////////// -- cod2019_m4a1_barrel_v4
+ATT = {}
+
+ATT.PrintName = "XRK 14.5\" Carbine Shroud"
+ATT.CompactName = "Carbine Shroud"
+ATT.Description = "Lightweight shroud and large bore barrel reduce weight for improved handling at the cost of muzzle velocity."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barrel_v04.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 3
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_custom"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/att_vm_p01_ar_mike4_barhvyshort_v0.mdl"
+ATT.ModelOffset = Vector(-0.02, 0, 1.15)
+ATT.BoneMerge = false
+ATT.LHIK = true
+ATT.LHIK_Priority = 10
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+        model:SetBodygroup(2,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(1,1)
+    end
+		
+	if swep:GetElements()["optic"] then
+        model:SetBodygroup(2,1)
+    end
+	
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["grip"] or swep:GetElements()["grip_angled"] then
+        model:SetBodygroup(3,1)
+    end
+	
+    if swep:GetElements()["grip_angled"] then 
+     model:SetPoseParameter("gripstyle", 1)
+    elseif swep:GetElements()["grip"] then 
+     model:SetPoseParameter("gripstyle", 2)
+	 else
+	 model:SetPoseParameter("gripstyle", 0)
+    end
+end
+
+if !warzonestats then -- Regular Stats
+
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = -127 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = -0.016
+	ATT.RangeMinMult = 0.9
+	ATT.RangeMaxMult = 0.9
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(3.7, 0, -0.07),
+        },
+        [6] = { -- Grips
+            Pos = Vector(3, 0, -0.95),
+        },
+        [3] = { -- Lasers
+            Pos = Vector(4.5, 0.85, -1.35),
+            Ang = Angle(0, 0, -90),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.27),
+    Ang = Angle(-0.033, -0.8, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_v4")
+/////////////// -- cod2019_m4a1_barrel_v4
+ATT = {}
+
+ATT.PrintName = "Corvus Custom Marksman"
+ATT.CompactName = "Corvus Marksman"
+ATT.Description = "Custom 19 inch M16A4 style barrel increases muzzle velocity and extends range. Additional weight stabilizes shots, but hinders mobility."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barcust.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 3
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_custom"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/attachment_vm_ar_mike4_custombarrel.mdl"
+ATT.BoneMerge = false
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+        model:SetBodygroup(2,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(1,1)
+    end
+	if swep:GetElements()["optic"] then
+        model:SetBodygroup(2,1)
+    end
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(2,2)
+    end
+    if swep:GetElements()["grip"] or swep:GetElements()["grip_angled"] then
+        model:SetBodygroup(3,1)
+    end
+    if swep:GetElements()["laser"] then
+        model:SetBodygroup(4,1)
+    end
+end
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 1.08
+	ATT.DeployTimeMult = 1.06
+	ATT.RangeMaxMult = 1.1
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = 425 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = 0.046
+	ATT.RecoilMult = 0.85
+	ATT.VisualRecoilMult = 0.85
+	ATT.SpreadAddMove = 0.00159
+	ATT.RangeMinMult = 1.35
+	ATT.RangeMaxMult = 1.35
+	ATT.SpeedMult = 0.97
+	ATT.SpeedSightsMult = 0.94
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(8.2, 0, 0),
+        },
+        [3] = { -- Laser
+            Pos = Vector(5, -1.0, -0.96),
+            Ang = Angle(0, 0, 90),
+		},
+        [6] = { -- Grips
+            Pos = Vector(4.6, 0, -0.45),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.28),
+    Ang = Angle(-0.033, -0.6, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_sniper")
+
+/////////////// -- cod2019_m4a1_barrel_sil
+ATT = {}
+
+ATT.PrintName = "FSS 12.4\" Predator"
+ATT.Description = "Integral suppressor with lightweight aluminum baffles keep the weapon silent and agile, but reduce the muzzle velocity."
+ATT.Icon = Material("entities/attachs/ar/m4/cod2019_ar_m4_barsil.png", "mips smooth")
+ATT.MenuCategory = "ARC9 - MW2019 Attachments"
+ATT.Free = false
+
+ATT.SortOrder = 3
+ATT.Category = "cod2023_cod2019_m4_barrel"
+ATT.ActivateElements = {"barrel_none","sight_front_none","muzzle_none","barrel_custom","barrel_sil"}
+
+ATT.Model = "models/weapons/cod2019/attachs/weapons/m4a1/attachment_vm_ar_mike4_barsil.mdl"
+ATT.BoneMerge = false
+
+ATT.Silencer = true
+ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
+ATT.MuzzleDevice_Priority = 5
+ATT.MuzzleDevice = true
+
+ATT.DrawFunc = function(swep, model, wm)
+    if swep:GetElements()["carry_handle"] then
+       model:SetBodygroup(1,0)
+	elseif swep:GetElements()["sight_front_folded"] then
+	model:SetBodygroup(1,1)
+    end
+	
+	if swep:GetElements()["optic"] then
+        model:SetBodygroup(1,1)
+    end
+	
+    if swep:GetElements()["optic_scope"] then
+        model:SetBodygroup(1,2)
+    end
+
+    if swep:GetElements()["muzzle_none2"] then
+        model:SetBodygroup(2,1)
+    end
+end
+
+ATT.CustomPros = { 
+	[ARC9:GetPhrase("mw19_muzzle_stat_sound")] = ""
+}
+
+if !warzonestats then -- Regular Stats
+	ATT.AimDownSightsTimeMult = 1.05
+	ATT.RangeMaxMult = 1.04
+	ATT.SpreadMult = 0.95
+	ATT.SpreadMultRecoil = 0.85
+	ATT.RecoilKickMult = 1.05
+else -- Warzone Stats
+	ATT.PhysBulletMuzzleVelocityAdd = -153 / ARC9.HUToM
+	ATT.AimDownSightsTimeAdd = -0.016
+	ATT.RecoilMult = 0.88
+	ATT.VisualRecoilMult = 0.88
+	ATT.RangeMinMult = 0.75
+	ATT.RangeMaxMult = 0.75
+end
+
+ATT.Element = {
+    AttPosMods = {
+        [1] = { -- Muzzle
+            Pos = Vector(1.3, 0, -0.03),
+        },
+        [3] = { -- Laser
+            Pos = Vector(1, 0.2, 0.10),
+            Ang = Angle(0,0,180),
+		},
+	    [6] = { -- Grips
+            Pos = Vector(3.7, 0, -0.35),
+        },
+    }
+}
+
+ATT.IronSights = {
+    Pos = Vector(-1.84, -2.3, 0.28),
+    Ang = Angle(-0.033, -0.63, 5),
+    Magnification = 1.15,
+    ViewModelFOV = 56,
+	CrosshairInSights = false
+}
+
+ARC9.LoadAttachment(ATT, "cod2023_cod2019_m4a1_barrel_sil")
