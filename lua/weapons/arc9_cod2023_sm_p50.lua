@@ -86,7 +86,7 @@ SWEP.RPM = 666
 
 SWEP.Firemodes = {
     {
-        Mode = -1,
+        Mode = -2,
 		PoseParam = 0,
         -- add other attachment modifiers
     },
@@ -285,9 +285,10 @@ SWEP.DropMagazineSounds = {
 "weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_06.ogg",
 }
 SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
-SWEP.DropMagazineTime = 0.4
-SWEP.DropMagazineQCA = 3
-SWEP.DropMagazineAng = Angle(0, -90, -90)
+SWEP.DropMagazineTime = 2.0
+SWEP.DropMagazineQCA = 3.0
+SWEP.DropMagazineAng = Angle(0, 90, 0)
+SWEP.DropMagazinePos = Vector(0, 10, 0)
 
 -------------------------- SOUNDS
 
@@ -418,7 +419,7 @@ SWEP.Animations = {
 		MinProgress = 0.85,
 		RefillProgress = 0.625,
 		FireASAP = true,
-		DropMagAt = 0.575,
+		DropMagAt = 0.6,
         IKTimeLine = {
             { t = 0, lhik = 1, rhik = 0 },
             { t = 0.3, lhik = 0, rhik = 0 },

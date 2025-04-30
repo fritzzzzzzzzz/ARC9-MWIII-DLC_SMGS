@@ -26,5 +26,19 @@
     /////////////////
 
     "$envmap" "\specularity_25"
-    "$envmaptint" "[0.529 0.252 0.1]"    
-     "color" "[0.529 0.312 0.1]"     
+    "$envmaptint" "[0.529 0.252 0.1]"   
+
+    "$detailblendmode" "4"
+    "$detailblendfactor" "0.7"
+
+    //remove this if not using MWB
+    "Proxies"
+    {
+        "Arc9EnvMapTint"
+        {
+            "min" "0"
+            "max" "1"
+            "color" "[0.529 0.252 0.1]"       
+        }
+    }
+}
