@@ -1,6 +1,6 @@
 --- FJX Horus ---
 sound.Add({
-	name = "COD2023.Mpapa9.Fire",
+	name = "COD2023.FJXH.Fire",
 	channel = CHAN_WEAPON or 1,
 	level = 140,
 	volume = 1,
@@ -13,7 +13,7 @@ sound.Add({
 })
 
 sound.Add({
-	name = "COD2023.Mpapa9.Fire.S",
+	name = "COD2023.FJXH.Fire.S",
 	channel = CHAN_WEAPON or 1,
 	level = 140,
 	volume = 10,
@@ -26,7 +26,7 @@ sound.Add({
 })
 
 sound.Add({
-	name = "mpapa9_fire_plr_atmo_out",
+	name = "Distant_FJXH.Outside",
 	channel = ARC9.CHAN_DISTANT or 136,
 	volume = 1,
 	pitch = { 80, 110 },
@@ -38,7 +38,7 @@ sound.Add({
 })
 
 sound.Add({
-	name = "mpapa9_fire_plr_atmo_in",
+	name = "Distant_FJXH.Inside",
 	channel = ARC9.CHAN_INDOORDISTANT or 144,
 	volume = 1,
 	pitch = { 80, 110 },

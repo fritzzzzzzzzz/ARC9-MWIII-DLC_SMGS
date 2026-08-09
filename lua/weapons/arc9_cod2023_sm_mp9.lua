@@ -298,18 +298,18 @@ SWEP.DropMagazinePos = Vector(35, 10, 20)
 
 local path = "fritz/weapons/mpapa9/"
 
-SWEP.ShootSound = "COD2023.Mpapa9.Fire"
-SWEP.ShootSoundIndoor = "COD2023.Mpapa9.Fire"
+SWEP.ShootSound = "COD2023.FJXH.Fire"
+SWEP.ShootSoundIndoor = "COD2023.FJXH.Fire"
 
-SWEP.ShootSoundSilenced = "COD2023.Mpapa9.Fire.S"
-SWEP.ShootSoundSilencedIndoor = "COD2023.Mpapa9.Fire.S"
+SWEP.ShootSoundSilenced = "COD2023.FJXH.Fire.S"
+SWEP.ShootSoundSilencedIndoor = "COD2023.FJXH.Fire.S"
 
 -- Non-Silenced Outside
 SWEP.LayerSound = "Layer_Pistol.Outside"
-SWEP.DistantShootSound = "mpapa9_fire_plr_atmo_out"
+SWEP.DistantShootSound = "Distant_FJXH.Outside"
 -- Inside
 SWEP.LayerSoundIndoor = "Layer_Pistol.Inside"
-SWEP.DistantShootSoundIndoor = "mpapa9_fire_plr_atmo_in"
+SWEP.DistantShootSoundIndoor = "Distant_FJXH.Inside"
 ---------------------------------------------------
 -- Silenced Outside
 SWEP.LayerSoundSilenced = "Layer_ARSUP.Outside"
