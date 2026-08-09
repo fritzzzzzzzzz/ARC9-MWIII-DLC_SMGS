@@ -89,3 +89,31 @@ sound.Add({
 	   "^weapons/cod2023/pmike/wpn_sm_pmike_fire_plr_atmo_ext_03.wav",
 	}
 } )
+
+
+--- RAM-9 ---
+sound.Add( {
+	name = "COD2023.RAM9.Fire",
+	channel = CHAN_WEAPON,
+	level = 140,
+	volume = 1,
+	pitch = {100,100},
+	sound = {
+		"^weapons/cod2023/talpham/wpn_sm_talpham_shot_01.wav",
+		"^weapons/cod2023/talpham/wpn_sm_talpham_shot_02.wav",
+		"^weapons/cod2023/talpham/wpn_sm_talpham_shot_03.wav",
+	}
+} )
+
+sound.Add( {
+	name = "COD2023.RAM9.Fire.S",
+	channel = CHAN_WEAPON,
+	level = 140,
+	volume = 1,
+	pitch = {100,100},
+	sound = {
+		"^weapons/cod2023/talpham/wpn_sm_talpham_sup_npc_fire_01.wav",
+		"^weapons/cod2023/talpham/wpn_sm_talpham_sup_npc_fire_02.wav",
+		"^weapons/cod2023/talpham/wpn_sm_talpham_sup_npc_fire_03.wav",
+	}
+} )
