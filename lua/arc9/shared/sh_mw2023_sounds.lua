@@ -181,3 +181,18 @@ sound.Add({
 		"^fritz/kappa50/atmo/weap_pistol_sup_fire_plr_atmo_int1_03.wav",
 	},
 })
+
+
+--- Superi 46 ---
+sound.Add( {
+	name = "COD2023.SUPERI.Fire",
+	channel = CHAN_WEAPON or 1,
+	level = 140,
+	volume = 1,
+	pitch = {100,100},
+	sound = {
+		"^weapons/cod2023/cmmg/wpn_sm_pcharlie9_shot_01.wav",
+		"^weapons/cod2023/cmmg/wpn_sm_pcharlie9_shot_02.wav",
+		"^weapons/cod2023/cmmg/wpn_sm_pcharlie9_shot_03.wav",
+	}
+} )

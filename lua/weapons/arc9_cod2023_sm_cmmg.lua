@@ -1,6 +1,6 @@
 AddCSLuaFile()
 if CLIENT then
-    killicon.Add( "arc9_cod2019_ar_m4", "vgui/killicons/cod2019_ar_m4.png", Color(251, 85, 25, 255))
+	killicon.Add("arc9_cod2019_ar_m4", "vgui/killicons/cod2019_ar_m4.png", Color(251, 85, 25, 255))
 end
 
 SWEP.LoadoutImage = "entities/loadout/arc9_cod2019_ar_m4.png"
@@ -17,21 +17,22 @@ SWEP.PrintName = ARC9:GetPhrase("") or "Superi 46"
 
 SWEP.Class = ARC9:GetPhrase("mw19_class_weapon_sm") or "Submachine Gun"
 SWEP.Trivia = {
-    [ ARC9:GetPhrase("mw19_country") ] = ARC9:GetPhrase("mw19_country_usa"),
-    [ ARC9:GetPhrase("mw19_manufacturer") ] = ARC9:GetPhrase("") or [[Tectonic Tactical]],
-    [ ARC9:GetPhrase("mw19_caliber") ] = ARC9:GetPhrase("mw19_caliber_46x30"),
-    [ ARC9:GetPhrase("mw19_weight") ] = string.format(ARC9:GetPhrase("mw19_weight_val"), 2.11, 2.11 * 2.2),
-    [ ARC9:GetPhrase("mw19_weight_projectile") ] = string.format(ARC9:GetPhrase("mw19_weight_projectile_val"), 41),
-    -- [ ARC9:GetPhrase("mw19_muzzle_energy") ] = "2,986 ft/s",
-    -- [ ARC9:GetPhrase("mw19_muzzle_velocity") ] = "1,665 joules"
+	[ARC9:GetPhrase("mw19_country")] = ARC9:GetPhrase("mw19_country_usa"),
+	[ARC9:GetPhrase("mw19_manufacturer")] = ARC9:GetPhrase("") or [[Tectonic Tactical]],
+	[ARC9:GetPhrase("mw19_caliber")] = ARC9:GetPhrase("mw19_caliber_46x30"),
+	[ARC9:GetPhrase("mw19_weight")] = string.format(ARC9:GetPhrase("mw19_weight_val"), 2.11, 2.11 * 2.2),
+	[ARC9:GetPhrase("mw19_weight_projectile")] = string.format(ARC9:GetPhrase("mw19_weight_projectile_val"), 41),
+	-- [ ARC9:GetPhrase("mw19_muzzle_energy") ] = "2,986 ft/s",
+	-- [ ARC9:GetPhrase("mw19_muzzle_velocity") ] = "1,665 joules"
 }
 
 SWEP.Credits = {
-    [ ARC9:GetPhrase("mw19_author") ] = "Fritxyz",
-    [ ARC9:GetPhrase("mw19_assets") ] = "Activision/Infinity Ward/Sledgehammer Games"
+	[ARC9:GetPhrase("mw19_author")] = "Fritxyz",
+	[ARC9:GetPhrase("mw19_assets")] = "Activision/Infinity Ward/Sledgehammer Games",
 }
 
-SWEP.Description = ARC9:GetPhrase("") or [[Chambered in 4.6x30mm, this weapon is designed to give impressive stopping power with a skeletonized, lightweight frame. Exceptionally adaptable, this weapon can be modified to excel in most combat scenarios.]]
+SWEP.Description = ARC9:GetPhrase("")
+	or [[Chambered in 4.6x30mm, this weapon is designed to give impressive stopping power with a skeletonized, lightweight frame. Exceptionally adaptable, this weapon can be modified to excel in most combat scenarios.]]
 
 SWEP.ViewModel = "models/weapons/cod2023/c_smg_cmmg.mdl"
 SWEP.WorldModel = "models/weapons/cod2019/w_rif_m4a1.mdl"
@@ -42,11 +43,11 @@ SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelMirror = "models/weapons/cod2023/c_smg_cmmg.mdl"
 SWEP.WorldModelOffset = {
-    Pos = Vector(-5.5, 3.75, -6.5),
-    Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8.5, 4.5, -4),
-    TPIKAng = Angle(-12.5, -1, 165),
-    Scale = 1
+	Pos = Vector(-5.5, 3.75, -6.5),
+	Ang = Angle(-5, 0, 180),
+	TPIKPos = Vector(-8.5, 4.5, -4),
+	TPIKAng = Angle(-12.5, -1, 165),
+	Scale = 1,
 }
 
 -------------------------- DAMAGE PROFILE
@@ -88,16 +89,16 @@ SWEP.Crosshair = true
 SWEP.RPM = 666
 
 SWEP.Firemodes = {
-    {
-        Mode = -1,
+	{
+		Mode = -1,
 		PoseParam = 0,
-        -- add other attachment modifiers
-    },
-    {
-        Mode = 1,
+		-- add other attachment modifiers
+	},
+	{
+		Mode = 1,
 		PoseParam = 1,
-        -- add other attachment modifiers
-    }
+		-- add other attachment modifiers
+	},
 }
 -------------------------- RECOIL
 
@@ -152,17 +153,16 @@ SWEP.VisualRecoilSide = 0.3
 --SWEP.VisualRecoilDampingConstSights = 80
 
 SWEP.VisualRecoilDoingFunc = function(up, side, roll, punch, recamount)
-    if recamount > 5 then
-        recamount = 1.65 - math.Clamp((recamount - 2) / 3.5, 0, 1)
-        
-        local fakerandom = 1 + (((69+recamount%5*CurTime()%3)*2420)%4)/10 
-        
-        return up, side * fakerandom, roll, punch
-    end
+	if recamount > 5 then
+		recamount = 1.65 - math.Clamp((recamount - 2) / 3.5, 0, 1)
 
-    return up, side, roll, punch
+		local fakerandom = 1 + (((69 + recamount % 5 * CurTime() % 3) * 2420) % 4) / 10
+
+		return up, side * fakerandom, roll, punch
+	end
+
+	return up, side, roll, punch
 end
-
 
 -------------------------- SPREAD
 
@@ -205,26 +205,26 @@ SWEP.TracerColor = Color(255, 255, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-1.84, -2.3, 0.28),
-    Ang = Angle(0.015, 0, 5),
-    Magnification = 1.15,
-    ViewModelFOV = 56,
-	CrosshairInSights = false
+	Pos = Vector(-1.84, -2.3, 0.28),
+	Ang = Angle(0.015, 0, 5),
+	Magnification = 1.15,
+	ViewModelFOV = 56,
+	CrosshairInSights = false,
 }
 
 SWEP.ViewModelFOVBase = 64
 
 SWEP.SprintMidPoint = {
-    Pos = Vector(0, -1, -0.15),
-    Ang = Angle(0, 0, 0)
+	Pos = Vector(0, -1, -0.15),
+	Ang = Angle(0, 0, 0),
 }
 
 SWEP.ActivePos = Vector(0, 0, 0)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.MovingMidPoint = {
-    Pos = Vector(-0.5, -0.5, -0.5),
-    Ang = Angle(0, 0, 0)
+	Pos = Vector(-0.5, -0.5, -0.5),
+	Ang = Angle(0, 0, 0),
 }
 
 SWEP.MovingPos = Vector(-0.5, -0.8, -0.5)
@@ -285,12 +285,12 @@ SWEP.ShouldDropMag = false
 SWEP.ShouldDropMagEmpty = false
 SWEP.DropMagazineModel = "models/weapons/cod2023/mags/cmmg_mag20_world.mdl" -- Set to a string or table to drop this magazine when reloading.
 SWEP.DropMagazineSounds = {
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_01.ogg",
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_02.ogg",
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_03.ogg",
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_04.ogg",
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_05.ogg",
-"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_06.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_01.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_02.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_03.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_04.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_05.ogg",
+	"weapons/cod2019/shared/magazine_drops/iw8_phys_mag_drop_ar_poly_concrete_06.ogg",
 }
 SWEP.DropMagazineAmount = 1 -- Amount of mags to drop.
 SWEP.DropMagazineTime = 0.4
@@ -326,40 +326,40 @@ SWEP.EnterSightsSound = path .. "wfoly_ar_mike4_ads_up.ogg"
 SWEP.ExitSightsSound = path .. "wfoly_ar_mike4_ads_down.ogg"
 
 SWEP.BulletBones = {
-    [1] = {"j_ammo_01"},
-    [2] = {"j_ammo_02"},
-    [3] = {"j_ammo_03"},
-    [4] = {"j_ammo_04"},
-    [5] = {"j_ammo_05"},
-    [6] = {"j_ammo_06"},
-    [7] = {"j_ammo_07"},
-    [8] = {"j_ammo_08"},
-    [9] = {"j_ammo_09"},
-    [10] = {"j_ammo_10"},
-    [11] = {"j_ammo_11"},
-    [12] = {"j_ammo_12"},
-	[13] = {"j_ammo_13"},
-	[14] = {"j_ammo_14"},
-	[15] = {"j_ammo_15"},
-	[16] = {"j_ammo_16"},
-	[17] = {"j_ammo_17"},
-	[18] = {"j_ammo_18"},
-	[19] = {"j_ammo_19"},
-	[20] = {"j_ammo_20"},
-	[21] = {"j_ammo_21"},
-	[22] = {"j_ammo_22"},
-	[23] = {"j_ammo_23"},
-	[24] = {"j_ammo_24"},
-	[25] = {"j_ammo_25"},
-	[26] = {"j_ammo_26"},
-	[27] = {"j_ammo_27"},
-	[28] = {"j_ammo_28"},
-	[29] = {"j_ammo_29"},
-	[30] = {"j_ammo_30"},
+	[1] = { "j_ammo_01" },
+	[2] = { "j_ammo_02" },
+	[3] = { "j_ammo_03" },
+	[4] = { "j_ammo_04" },
+	[5] = { "j_ammo_05" },
+	[6] = { "j_ammo_06" },
+	[7] = { "j_ammo_07" },
+	[8] = { "j_ammo_08" },
+	[9] = { "j_ammo_09" },
+	[10] = { "j_ammo_10" },
+	[11] = { "j_ammo_11" },
+	[12] = { "j_ammo_12" },
+	[13] = { "j_ammo_13" },
+	[14] = { "j_ammo_14" },
+	[15] = { "j_ammo_15" },
+	[16] = { "j_ammo_16" },
+	[17] = { "j_ammo_17" },
+	[18] = { "j_ammo_18" },
+	[19] = { "j_ammo_19" },
+	[20] = { "j_ammo_20" },
+	[21] = { "j_ammo_21" },
+	[22] = { "j_ammo_22" },
+	[23] = { "j_ammo_23" },
+	[24] = { "j_ammo_24" },
+	[25] = { "j_ammo_25" },
+	[26] = { "j_ammo_26" },
+	[27] = { "j_ammo_27" },
+	[28] = { "j_ammo_28" },
+	[29] = { "j_ammo_29" },
+	[30] = { "j_ammo_30" },
 }
 
-SWEP.HideBones  = {
-    [1] = "j_mag2",
+SWEP.HideBones = {
+	[1] = "j_mag2",
 }
 
 SWEP.TriggerDelay = 0.025 -- Set to > 0 to play the "trigger" animation before shooting. Delay time is based on this value.
@@ -372,743 +372,911 @@ SWEP.TriggerUpSound = path .. "weap_mike4_fire_plr_disconnector_01.ogg"
 
 -- Jammed
 
-SWEP.Malfunction = true 
-SWEP.MalfunctionNeverLastShoot = true 
-SWEP.MalfunctionMeanShotsToFail = 300*2
-SWEP.MalfunctionMeanShotsToFailMultHot = -0.1*2
+SWEP.Malfunction = true
+SWEP.MalfunctionNeverLastShoot = true
+SWEP.MalfunctionMeanShotsToFail = 300 * 2
+SWEP.MalfunctionMeanShotsToFailMultHot = -0.1 * 2
 
 SWEP.Animations = {
 	["enter_sights"] = {
 		Source = "idle",
-		IKTimeLine = { { t = 0,  lhik = 1, rhik = 1} },
+		IKTimeLine = { { t = 0, lhik = 1, rhik = 1 } },
 	},
-    ["fire"] = {
-        Source = "shoot1",
-		IKTimeLine = { { t = 0,  lhik = 1, rhik = 1} },
-    },
-    ["dryfire"] = {
-        Source = "idle",
+	["fire"] = {
+		Source = "shoot1",
+		IKTimeLine = { { t = 0, lhik = 1, rhik = 1 } },
+	},
+	["dryfire"] = {
+		Source = "idle",
 		MinProgress = 0.01,
 		FireASAP = true,
-		IKTimeLine = { { t = 0,  lhik = 1, rhik = 1} },
-    },
-    ["reload"] = {
-        Source = "reload",
+		IKTimeLine = { { t = 0, lhik = 1, rhik = 1 } },
+	},
+	["reload"] = {
+		Source = "reload",
 		MinProgress = 0.9,
 		PeekProgress = 0.8625,
 		RefillProgress = 0.575,
 		FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_empty"] = {
-        Source = "reload_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.85, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 7 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magout_01.ogg", t = 9 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magbump_01.ogg", t = 25 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magin_01.ogg", t = 30 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 37 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 44 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 48 / 30 },
+		},
+	},
+	["reload_empty"] = {
+		Source = "reload_empty",
 		MinProgress = 0.9,
 		PeekProgress = 0.85,
 		RefillProgress = 0.7,
 		FireASAP = true,
 		DropMagAt = 0.425,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 1, rhik = 1 },
-	    },
-	        EventTable = {
-			{s = path .. "pcharlie9_boltslap.wav", t = 44/30},
-        },
-    },
-    ["reload_fast"] = {
-        Source = "reload_fast",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 3 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magout_01.ogg", t = 9 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 25 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magin_01.ogg", t = 30 / 30 },
+			{ s = path .. "pcharlie9_bolthand.ogg", t = 43 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 45 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 49 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 55 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 60 / 30 },
+		},
+	},
+	["reload_fast"] = {
+		Source = "reload_fast",
 		MinProgress = 0.85,
 		RefillProgress = 0.625,
 		FireASAP = true,
 		DropMagAt = 0.575,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_fast_empty"] = {
-        Source = "reload_fast_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.9, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 12 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magout_01.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 18 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magbump_01.ogg", t = 27 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magin_01.ogg", t = 31 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 35 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 44 / 30 },
+		},
+	},
+	["reload_fast_empty"] = {
+		Source = "reload_fast_empty",
 		MinProgress = 0.85,
 		PeekProgress = 0.8,
 		RefillProgress = 0.7,
 		FireASAP = true,
 		DropMagAt = 0.575,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.5, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-		    { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
-        },
-	        EventTable = {
-			{s = path .. "pcharlie9_boltslap.wav", t = 40/30},
-        },
-    },
-    ["reload_xmag"] = {
-        Source = "reload_xmag",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.5, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.85, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_quick_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 14 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_magout_01.ogg", t = 17 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 28 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_magin_01.ogg", t = 32 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 38 / 30 },
+			{ s = path .. "pcharlie9_boltslap.ogg", t = 39 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 43 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 48 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 52 / 30 },
+		},
+	},
+	["reload_xmag"] = {
+		Source = "reload_xmag",
 		MinProgress = 0.9,
 		PeekProgress = 0.85,
 		RefillProgress = 0.55,
 		FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_xmag_empty"] = {
-        Source = "reload_xmag_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.85, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 5 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_40rd_magout_01.ogg", t = 9 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magbump_01.ogg", t = 26 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_40rd_magin_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 44 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 50 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 54 / 30 },
+		},
+	},
+	["reload_xmag_empty"] = {
+		Source = "reload_xmag_empty",
 		MinProgress = 0.85,
 		PeekProgress = 0.8,
 		RefillProgress = 0.7,
 		FireASAP = true,
 		DropMagAt = 0.425,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 1, rhik = 1 },
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 1, rhik = 1 },
 		},
-	        EventTable = {
-			{s = path .. "pcharlie9_boltslap.wav", t = 46/30},
-        },
-    },
-    ["reload_xmag_fast"] = {
-        Source = "reload_xmag_fast",
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 2 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_40rd_magout_01.ogg", t = 8 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 26 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_40rd_magin_01.ogg", t = 38 / 30 },
+			{ s = path .. "pcharlie9_bolthand.ogg", t = 51 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 51 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 55 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 61 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 66 / 30 },
+		},
+	},
+	["reload_xmag_fast"] = {
+		Source = "reload_xmag_fast",
 		MinProgress = 0.85,
 		RefillProgress = 0.625,
 		FireASAP = true,
 		DropMagAt = 0.5,
 		Mult = 0.9,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-            { t = 0.9, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_xmag_fast_empty"] = {
-        Source = "reload_xmag_fast_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.9, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 12 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_40rd_magout_01.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 18 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magbump_01.ogg", t = 30 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_40rd_magin_01.ogg", t = 34 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 38 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 44 / 30 },
+		},
+	},
+	["reload_xmag_fast_empty"] = {
+		Source = "reload_xmag_fast_empty",
 		MinProgress = 0.85,
 		PeekProgress = 0.8,
 		RefillProgress = 0.675,
 		FireASAP = true,
 		DropMagAt = 0.5,
 		Mult = 0.9,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.87, lhik = 1, rhik = 1 },
-        },
-    },
-	    ["reload_smag"] = {
-        Source = "reload_smag",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.87, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_quick_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 12 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_40rd_magout_01.ogg", t = 16 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 30 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_40rd_magin_01.ogg", t = 36 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 42 / 30 },
+			{ s = path .. "pcharlie9_boltslap.ogg", t = 47 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 48 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 51 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 54 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 57 / 30 },
+		},
+	},
+	["reload_smag"] = {
+		Source = "reload_smag",
 		MinProgress = 0.9,
 		PeekProgress = 0.85,
 		RefillProgress = 0.55,
 		FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_smag_empty"] = {
-        Source = "reload_smag_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.95, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 7 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magout_01.ogg", t = 9 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magbump_01.ogg", t = 25 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_magin_01.ogg", t = 30 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 37 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 44 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 48 / 30 },
+		},
+	},
+	["reload_smag_empty"] = {
+		Source = "reload_smag_empty",
 		MinProgress = 0.85,
 		PeekProgress = 0.8,
 		RefillProgress = 0.7,
 		FireASAP = true,
 		DropMagAt = 0.425,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_fast_smag"] = {
-        Source = "reload_smag_fast",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 3 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magout_01.ogg", t = 9 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 25 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magin_01.ogg", t = 30 / 30 },
+			{ s = path .. "pcharlie9_bolthand.ogg", t = 43 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 45 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 49 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 55 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 60 / 30 },
+		},
+	},
+	["reload_fast_smag"] = {
+		Source = "reload_smag_fast",
 		MinProgress = 0.85,
 		RefillProgress = 0.625,
 		FireASAP = true,
 		DropMagAt = 0.575,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 1, rhik = 1 },
-        },
-    },
-    ["reload_fast_smag_empty"] = {
-        Source = "reload_smag_fast_empty",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 12 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magout_01.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 18 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magbump_01.ogg", t = 27 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_fast_magin_01.ogg", t = 31 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 35 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 44 / 30 },
+		},
+	},
+	["reload_fast_smag_empty"] = {
+		Source = "reload_smag_fast_empty",
 		MinProgress = 0.85,
 		PeekProgress = 0.8,
 		RefillProgress = 0.7,
 		FireASAP = true,
 		DropMagAt = 0.575,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.7, lhik = 0, rhik = 0 },
-            { t = 0.95, lhik = 1, rhik = 1 },
-        },
-    },
-    ["ready"] = {
-        Source = "draw",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 0, rhik = 0 },
+			{ t = 0.95, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_quick_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 13 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 14 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_magout_01.ogg", t = 17 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_magbump_01.ogg", t = 28 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_empty_fast_magin_01.ogg", t = 32 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 38 / 30 },
+			{ s = path .. "pcharlie9_boltslap.ogg", t = 39 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 40 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 43 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 48 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 52 / 30 },
+		},
+	},
+	["ready"] = {
+		Source = "draw",
 		MinProgress = 0.8,
 		FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.6, lhik = 0, rhik = 0 },
-		    { t = 0.7, lhik = 1, rhik = 0 },
-        },
-    },
-    -- ["1_ready"] = {
-        -- Source = "draw2",
-		-- MinProgress = 0.8,
-		-- FireASAP = true,
-        -- IKTimeLine = {
-            -- { t = 0, lhik = 1, rhik = 0 },
-            -- { t = 0.2, lhik = 0, rhik = 0 },
-            -- { t = 0.65, lhik = 0, rhik = 0 },
-            -- { t = 0.8, lhik = 1, rhik = 1 },
-        -- },
-        -- EventTable = {
-            -- {s = path .. "wpfoly_mike4_raise_first_01.ogg", t = 0.2},
-            -- --{s = path .. "wpfoly_mike4_raise_first_02.ogg", t = 0.85},
-            -- {s = path .. "wpfoly_mike4_raise_first_03.ogg", t = 1.3},
-        -- },
-    -- },
-    ["draw"] = {
-        Source = "draw_short",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.2, lhik = 0, rhik = 0 },
+			{ t = 0.6, lhik = 0, rhik = 0 },
+			{ t = 0.7, lhik = 1, rhik = 0 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 1 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_02.ogg", t = 6 / 30 },
+			{ s = path .. "pcharlie9_boltback.ogg", t = 12 / 30 },
+			{ s = path .. "pcharlie9_boltforward.ogg", t = 16 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 27 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 31 / 30 },
+		},
+	},
+	["draw"] = {
+		Source = "draw_short",
 		MinProgress = 0.8,
 		FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 0, rhik = 1 },
-            { t = 0.5, lhik = 1, rhik = 1 },
-        },
-        EventTable = {
-            {s = path .. "p01_sm_pcharlie9_raise_mvmt_01.wav", t = 0/30},
-			{s = path .. "p01_sm_pcharlie9_reload_shoulder_01.wav", t = 12.5/30},
-        },
-    },
-    ["holster"] = {
-        Source = "holster",
+		IKTimeLine = {
+			{ t = 0, lhik = 0, rhik = 1 },
+			{ t = 0.5, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_raise_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 12.5 / 30 },
+		},
+	},
+	["holster"] = {
+		Source = "holster",
 		--Mult = 0.8,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 1 },
-            { t = 0.3, lhik = 0, rhik = 1 },
-        },
-        EventTable = {
-            {s = path .. "p01_sm_pcharlie9_drop_mvmt_01.wav", t = 0/30},
-        },
-    },
-    ["idle"] = {
-        Source = "idle",
-    },
-    ["idle_sprint"] = {
-        Source = "sprint",
-    },
-    ["exit_sprint"] = {
-        Source = "sprint_out",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 1 },
+			{ t = 0.3, lhik = 0, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_drop_mvmt_01.ogg", t = 0 / 30 },
+		},
+	},
+	["idle"] = {
+		Source = "idle",
+	},
+	["idle_sprint"] = {
+		Source = "sprint",
+	},
+	["exit_sprint"] = {
+		Source = "sprint_out",
 		Time = 1,
-    },
-    ["enter_sprint"] = {
-        Source = "sprint_in",
-		IKTimeLine = { { t = 0,  lhik = 1, rhik = 1} },
+	},
+	["enter_sprint"] = {
+		Source = "sprint_in",
+		IKTimeLine = { { t = 0, lhik = 1, rhik = 1 } },
 		Time = 1,
-    },
-    ["super_sprint_idle"] = {
-        Source = "super_sprint",
-        IKTimeLine = {
-            { t = 0, lhik = 0, rhik = 1 },
-        },
-    },
-    ["super_sprint_in"] = {
-        Source = "super_sprint_in",
+	},
+	["super_sprint_idle"] = {
+		Source = "super_sprint",
+		IKTimeLine = {
+			{ t = 0, lhik = 0, rhik = 1 },
+		},
+	},
+	["super_sprint_in"] = {
+		Source = "super_sprint_in",
 		Time = 1,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 1 },
-            { t = 0.1, lhik = 1, rhik = 1 },
-            { t = 1, lhik = 0, rhik = 1 },
-        },
-    },
-    ["super_sprint_out"] = {
-        Source = "super_sprint_out",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 1 },
+			{ t = 0.1, lhik = 1, rhik = 1 },
+			{ t = 1, lhik = 0, rhik = 1 },
+		},
+	},
+	["super_sprint_out"] = {
+		Source = "super_sprint_out",
 		Time = 1,
-        IKTimeLine = {
-            { t = 0, lhik = 0, rhik = 1 },
-            { t = 0.1, lhik = 0, rhik = 1 },
-            { t = 1, lhik = 1, rhik = 1 },
-        },
-    },
-    ["inspect"] = {
-        Source = "lookat01",
-        MinProgress = 0.1,
-        FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 0, rhik = 0 },
+		IKTimeLine = {
+			{ t = 0, lhik = 0, rhik = 1 },
+			{ t = 0.1, lhik = 0, rhik = 1 },
+			{ t = 1, lhik = 1, rhik = 1 },
+		},
+	},
+	["inspect"] = {
+		Source = "lookat01",
+		MinProgress = 0.1,
+		FireASAP = true,
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 0, rhik = 0 },
 			{ t = 0.9, lhik = 0, rhik = 0 },
-            { t = 0.92, lhik = 1, rhik = 1 },
-        },
-    },
+			{ t = 0.92, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 61 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 73 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 86 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magout_01.ogg", t = 88 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 109 / 30 },
+			{ s = path .. "p11_sm_uzulu_inspect_magmvmnt2.ogg", t = 137 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magin_01.ogg", t = 170 / 30 },
+			{ s = path .. "pcharlie9_boltback.ogg", t = 191 / 30 },
+			{ s = path .. "pcharlie9_boltforward.ogg", t = 208 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 219 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 221 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 227 / 30 },
+		},
+	},
 	["inspect_xmag"] = {
-        Source = "lookat01",
-        MinProgress = 0.1,
-        FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 0, rhik = 0 },
+		Source = "lookat01",
+		MinProgress = 0.1,
+		FireASAP = true,
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 0, rhik = 0 },
 			{ t = 0.9, lhik = 0, rhik = 0 },
-            { t = 0.92, lhik = 1, rhik = 1 },
-        },
-    },
+			{ t = 0.92, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 61 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 73 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 86 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magout_01.ogg", t = 88 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 109 / 30 },
+			{ s = path .. "p11_sm_uzulu_inspect_magmvmnt2.ogg", t = 137 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magin_01.ogg", t = 170 / 30 },
+			{ s = path .. "pcharlie9_boltback.ogg", t = 191 / 30 },
+			{ s = path .. "pcharlie9_boltforward.ogg", t = 208 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 219 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 221 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 227 / 30 },
+		},
+	},
 	["inspect_smag"] = {
-        Source = "lookat01",
-        MinProgress = 0.1,
-        FireASAP = true,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.1, lhik = 0, rhik = 0 },
-            { t = 0.8, lhik = 0, rhik = 0 },
+		Source = "lookat01",
+		MinProgress = 0.1,
+		FireASAP = true,
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.1, lhik = 0, rhik = 0 },
+			{ t = 0.8, lhik = 0, rhik = 0 },
 			{ t = 0.9, lhik = 0, rhik = 0 },
-            { t = 0.92, lhik = 1, rhik = 1 },
-        },
-    },
-    ["bash"] = {
-        Source = {"melee", "melee2", "melee3"},
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.5, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
-        },
-    },
-    ["firemode_1"] = {
-        Source = "semi_off",
-        EventTable = {
-            {s = path .. "weap_m4_selector_semi_on_03.ogg", t = 0/30},
-        },
-    },
-    ["firemode_2"] = {
-        Source = "semi_on",
-        EventTable = {
-            {s = path .. "weap_m4_selector_semi_on_01.ogg", t = 0/30},
-        },
-    },
-    ["jam"] = {
-        Source = "jam",
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 1},
-            { t = 0.2, lhik = 1, rhik = 1},
-            { t = 0.5, lhik = 1, rhik = 1},
-            { t = 0.65, lhik = 1, rhik = 1},
-        },
-        EventTable = {
-            {s = "weapons/cod2019/m4a1/weap_mike4_fire_plr_disconnector_01.ogg", t = 0/30},
-        },
-    },
-    ["fix"] = {
-        Source = "unjam",
+			{ t = 0.92, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_01.ogg", t = 0 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_02.ogg", t = 61 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 73 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_raise_first_mvmt_01.ogg", t = 86 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magout_01.ogg", t = 88 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 109 / 30 },
+			{ s = path .. "p11_sm_uzulu_inspect_magmvmnt2.ogg", t = 137 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_magin_01.ogg", t = 170 / 30 },
+			{ s = path .. "pcharlie9_boltback.ogg", t = 191 / 30 },
+			{ s = path .. "pcharlie9_boltforward.ogg", t = 208 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_inspect_mvmt_03.ogg", t = 219 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_hand_01.ogg", t = 221 / 30 },
+			{ s = path .. "p01_sm_pcharlie9_reload_shoulder_01.ogg", t = 227 / 30 },
+		},
+	},
+	["bash"] = {
+		Source = { "melee", "melee2", "melee3" },
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.2, lhik = 0, rhik = 0 },
+			{ t = 0.5, lhik = 0, rhik = 0 },
+			{ t = 0.85, lhik = 1, rhik = 1 },
+		},
+	},
+	["firemode_1"] = {
+		Source = "semi_off",
+		EventTable = {
+			{ s = path .. "weap_m4_selector_semi_on_03.ogg", t = 0 / 30 },
+		},
+	},
+	["firemode_2"] = {
+		Source = "semi_on",
+		EventTable = {
+			{ s = path .. "weap_m4_selector_semi_on_01.ogg", t = 0 / 30 },
+		},
+	},
+	["jam"] = {
+		Source = "jam",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 1 },
+			{ t = 0.2, lhik = 1, rhik = 1 },
+			{ t = 0.5, lhik = 1, rhik = 1 },
+			{ t = 0.65, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = path .. "weap_mike4_fire_plr_disconnector_01.ogg", t = 0 / 30 },
+		},
+	},
+	["fix"] = {
+		Source = "unjam",
 		EjectAt = 0.4,
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 1},
-            { t = 0.2, lhik = 0, rhik = 1},
-            { t = 0.5, lhik = 0, rhik = 1},
-            { t = 0.65, lhik = 1, rhik = 1},
-        },
-    },
-    ["enter_bipod"] = {
-        Source = "bipod_in",
-    },
-    ["exit_bipod"] = {
-        Source = "bipod_out",
-    },
-    ["hybrid_on"] = {
-        Source = "hybrid_on",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 1 },
+			{ t = 0.2, lhik = 0, rhik = 1 },
+			{ t = 0.5, lhik = 0, rhik = 1 },
+			{ t = 0.65, lhik = 1, rhik = 1 },
+		},
+	},
+	["enter_bipod"] = {
+		Source = "bipod_in",
+	},
+	["exit_bipod"] = {
+		Source = "bipod_out",
+	},
+	["hybrid_on"] = {
+		Source = "hybrid_on",
 
-        EventTable = {
-            {s = "Viewmodel.SwitchSight", t = 0/30},
-			{s = "switchsights/wpfoly_hybrid_toggle_on.ogg", t = 5/30},
-        },
-    },
-    ["hybrid_off"] = {
-        Source = "hybrid_off",
-        IKTimeLine = {
-            { t = 0, lhik = 1, rhik = 0 },
-            { t = 0.2, lhik = 0, rhik = 0 },
-            { t = 0.5, lhik = 0, rhik = 0 },
-            { t = 0.85, lhik = 1, rhik = 1 },
-        },
-        EventTable = {
-            {s = "Viewmodel.SwitchSight", t = 0/30},
-			{s = "switchsights/wpfoly_hybrid_toggle_off.ogg", t = 5/30},
-        },
-    },
+		EventTable = {
+			{ s = "Viewmodel.SwitchSight", t = 0 / 30 },
+			{ s = "switchsights/wpfoly_hybrid_toggle_on.ogg", t = 5 / 30 },
+		},
+	},
+	["hybrid_off"] = {
+		Source = "hybrid_off",
+		IKTimeLine = {
+			{ t = 0, lhik = 1, rhik = 0 },
+			{ t = 0.2, lhik = 0, rhik = 0 },
+			{ t = 0.5, lhik = 0, rhik = 0 },
+			{ t = 0.85, lhik = 1, rhik = 1 },
+		},
+		EventTable = {
+			{ s = "Viewmodel.SwitchSight", t = 0 / 30 },
+			{ s = "switchsights/wpfoly_hybrid_toggle_off.ogg", t = 5 / 30 },
+		},
+	},
 }
 
 -------------------------- ATTACHMENTS
 local Translate_XMag = {
-    ["reload"] = "reload_xmag",
-    ["reload_empty"] = "reload_xmag_empty",
+	["reload"] = "reload_xmag",
+	["reload_empty"] = "reload_xmag_empty",
 	["inspect"] = "inspect_xmag",
 }
 local Translate_XMag_Fast = {
-    ["reload"] = "reload_xmag_fast",
-    ["reload_empty"] = "reload_xmag_fast_empty",
+	["reload"] = "reload_xmag_fast",
+	["reload_empty"] = "reload_xmag_fast_empty",
 	["inspect"] = "inspect_xmag",
 }
 
 local Translate_SMG = {
-    ["reload"] = "reload_smag",
-    ["reload_empty"] = "reload_smag_empty",
-	["inspect"] = "inspect_smag"
+	["reload"] = "reload_smag",
+	["reload_empty"] = "reload_smag_empty",
+	["inspect"] = "inspect_smag",
 }
 local Translate_SMG_Fast = {
-    ["reload"] = "reload_fast_smag",
-    ["reload_empty"] = "reload_fast_smag_empty",
-	["inspect"] = "inspect_smag"
+	["reload"] = "reload_fast_smag",
+	["reload_empty"] = "reload_fast_smag_empty",
+	["inspect"] = "inspect_smag",
 }
 
 local Translate_Fast = {
-    ["reload"] = "reload_fast",
-    ["reload_empty"] = "reload_fast_empty",
+	["reload"] = "reload_fast",
+	["reload_empty"] = "reload_fast_empty",
 }
 local Translate_TacSprint = {
-    ["idle_sprint"] = "super_sprint_idle",
-    ["enter_sprint"] = "super_sprint_in",
-    ["exit_sprint"] = "super_sprint_out",
+	["idle_sprint"] = "super_sprint_idle",
+	["enter_sprint"] = "super_sprint_in",
+	["exit_sprint"] = "super_sprint_out",
 }
 
 SWEP.Hook_TranslateAnimation = function(wep, anim)
-    --local attached = self:GetElements()
+	--local attached = self:GetElements()
 
-    local speedload = wep:HasElement("perk_speedreload")
-    local super_sprint = wep:HasElement("perk_super_sprint")
-    local xmag = wep:HasElement("mag_xmag")
+	local speedload = wep:HasElement("perk_speedreload")
+	local super_sprint = wep:HasElement("perk_super_sprint")
+	local xmag = wep:HasElement("mag_xmag")
 	local smg = wep:HasElement("mag_smag")
 
-    if super_sprint and Translate_TacSprint[anim] then
-        return Translate_TacSprint[anim]
-    end
+	if super_sprint and Translate_TacSprint[anim] then
+		return Translate_TacSprint[anim]
+	end
 
-    if speedload then
-        if smg then
-            if Translate_SMG_Fast[anim] then
-                return Translate_SMG_Fast[anim]
-            end
-        elseif xmagslrg then
-            if Translate_XMagslrg_Fast[anim] then
-                return Translate_XMagslrg_Fast[anim]
-            end
+	if speedload then
+		if smg then
+			if Translate_SMG_Fast[anim] then
+				return Translate_SMG_Fast[anim]
+			end
+		elseif xmagslrg then
+			if Translate_XMagslrg_Fast[anim] then
+				return Translate_XMagslrg_Fast[anim]
+			end
 		elseif xmag then
-            if Translate_XMag_Fast[anim] then
-                return Translate_XMag_Fast[anim]
-            end 
-        else
-            if Translate_Fast[anim] then
-                return Translate_Fast[anim]
-            end
-        end
-    else 
-        if smg then
-            if Translate_SMG[anim] then
-                return Translate_SMG[anim]
-            end
-        elseif xmagslrg then
-            if Translate_XMagslrg[anim] then
-                return Translate_XMagslrg[anim]
-            end
+			if Translate_XMag_Fast[anim] then
+				return Translate_XMag_Fast[anim]
+			end
+		else
+			if Translate_Fast[anim] then
+				return Translate_Fast[anim]
+			end
+		end
+	else
+		if smg then
+			if Translate_SMG[anim] then
+				return Translate_SMG[anim]
+			end
+		elseif xmagslrg then
+			if Translate_XMagslrg[anim] then
+				return Translate_XMagslrg[anim]
+			end
 		elseif xmag then
-            if Translate_XMag[anim] then
-                return Translate_XMag[anim]
-            end
-        end
-    end
-	
-    --wep.MWHybridSwitching = nil
-    if anim == "switchsights" then
-        if wep:HasElement("hybrid_scope") then
-            wep.MWHybridSwitching = true
-            return wep:GetMultiSight() == 1 and "hybrid_on" or "hybrid_off"
-        else
-            return false
-        end
-    end
+			if Translate_XMag[anim] then
+				return Translate_XMag[anim]
+			end
+		end
+	end
+
+	--wep.MWHybridSwitching = nil
+	if anim == "switchsights" then
+		if wep:HasElement("hybrid_scope") then
+			wep.MWHybridSwitching = true
+			return wep:GetMultiSight() == 1 and "hybrid_on" or "hybrid_off"
+		else
+			return false
+		end
+	end
 end
 
 SWEP.DefaultBodygroups = "000000000000000000"
 
 SWEP.AttachmentTableOverrides = {
-    ["arc9_stat_proscreen_main"] = {
+	["arc9_stat_proscreen_main"] = {
 		ModelOffset = Vector(10, -0.75, 0.5),
 		ModelAngleOffset = Angle(0, 0, 0),
 		Scale = 0.9,
-    },
-    ["go_grip_angled"] = {
+	},
+	["go_grip_angled"] = {
 		ModelOffset = Vector(0.7, 0, 0),
-    },
-    ["cod2019_grips_alt_cclamp"] = {
+	},
+	["cod2019_grips_alt_cclamp"] = {
 		ModelOffset = Vector(-1, -0.1, 0.8),
 		ModelAngleOffset = Angle(0, 0, 180),
-    },
+	},
 	["cod2019_trigger_light"] = {
-    Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust.mdl",
-	BoneMerge = false
-    },
-    ["cod2019_trigger_heavy"] = {
-    Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust02.mdl",
-	BoneMerge = false
-    },
-    ["cod2019_trigger_match"] = {
-    Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust03.mdl",
-	BoneMerge = false
-    },
+		Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust.mdl",
+		BoneMerge = false,
+	},
+	["cod2019_trigger_heavy"] = {
+		Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust02.mdl",
+		BoneMerge = false,
+	},
+	["cod2019_trigger_match"] = {
+		Model = "models/weapons/cod2019/attachs/weapons/m19/attachment_vm_pi_papa320_trigcust03.mdl",
+		BoneMerge = false,
+	},
 }
 
 SWEP.AttachmentElements = {
-    ["body_none"] = {
-        Bodygroups = {
-            {0,1},
-        },
-    },
-    ["barrel_none"] = {
-        Bodygroups = {
-            {1,1},
-        },
-    },
+	["body_none"] = {
+		Bodygroups = {
+			{ 0, 1 },
+		},
+	},
+	["barrel_none"] = {
+		Bodygroups = {
+			{ 1, 1 },
+		},
+	},
 	["muzzle_none"] = {
-        Bodygroups = {
-            {2,1},
-        },
-    },
-    ["sight_front_none"] = {
-        Bodygroups = {
-            {3,2},
-        },
-    },
-    ["sight_back_none"] = {
-        Bodygroups = {
-            {4,2},
-        },
-    },
-    ["stock_none"] = {
-        Bodygroups = {
-            {5,2},
-        },
-    },
-    ["pistolgrip_none"] = {
-        Bodygroups = {
-            {6,2},
-        },
-    },
-    ["mag_none"] = {
-        Bodygroups = {
-            {7,1},
-        },
-    },	
+		Bodygroups = {
+			{ 2, 1 },
+		},
+	},
+	["sight_front_none"] = {
+		Bodygroups = {
+			{ 3, 2 },
+		},
+	},
+	["sight_back_none"] = {
+		Bodygroups = {
+			{ 4, 2 },
+		},
+	},
+	["stock_none"] = {
+		Bodygroups = {
+			{ 5, 2 },
+		},
+	},
+	["pistolgrip_none"] = {
+		Bodygroups = {
+			{ 6, 2 },
+		},
+	},
+	["mag_none"] = {
+		Bodygroups = {
+			{ 7, 1 },
+		},
+	},
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
-    local model = data.model
-    if wep:HasElement("stock_retract") then 
-	model:SetBodygroup(3,1) 
-	model:SetBodygroup(6,0) 
+	local model = data.model
+	if wep:HasElement("stock_retract") then
+		model:SetBodygroup(3, 1)
+		model:SetBodygroup(6, 0)
 	end
 	--if wep:HasElement("stock_none") then model:SetBodygroup(4,1) end
 end
 
-
 SWEP.Attachments = {
-    { -- 1
-        PrintName = ARC9:GetPhrase("mw19_category_muzzle"),
-        Category = "cod2019_muzzle",
-        DefaultIcon = Material("entities/defattachs/muzzle-ar.png", "mips smooth"),
+	{ -- 1
+		PrintName = ARC9:GetPhrase("mw19_category_muzzle"),
+		Category = "cod2019_muzzle",
+		DefaultIcon = Material("entities/defattachs/muzzle-ar.png", "mips smooth"),
 		Bone = "tag_silencer",
-        Pos = Vector(0, 0, 0),
+		Pos = Vector(0, 0, 0),
 		Icon_Offset = Vector(1.1, 0, 0),
-		InstalledElements = {"muzzle_none","muzzle_none2"},
-		ExcludeElements = {"barrel_sil"},
-    },
-    { -- 2
-        PrintName = ARC9:GetPhrase("mw19_category_barrel"),
+		InstalledElements = { "muzzle_none", "muzzle_none2" },
+		ExcludeElements = { "barrel_sil" },
+	},
+	{ -- 2
+		PrintName = ARC9:GetPhrase("mw19_category_barrel"),
 		DefaultIcon = Material("entities/defattachs/barrel-ar.png", "mips smooth"),
-        Category = "cod2023_cod2019_m4_barrel",
-        Bone = "tag_barrel_attach",
-        Pos = Vector(0, 0, -0.109),
+		Category = "cod2023_cod2019_m4_barrel",
+		Bone = "tag_barrel_attach",
+		Pos = Vector(0, 0, -0.109),
 		Icon_Offset = Vector(0, 0, 0),
-    },
-    { -- 3
-        PrintName = ARC9:GetPhrase("mw19_category_laser"),
+	},
+	{ -- 3
+		PrintName = ARC9:GetPhrase("mw19_category_laser"),
 		DefaultIcon = Material("entities/defattachs/laser-ar.png", "mips smooth"),
-        Category = "cod2019_tac",
-        Bone = "tag_laser_attach",
-        Pos = Vector(1.2, 0, -0.1),
-        Ang = Angle(0, 0, -180),
-		InstalledElements = {"rail_laser"},
-		ExcludeElements = {"barrel_m16"},
-    },
-    { -- 4
-        PrintName = ARC9:GetPhrase("mw19_category_optic"),
+		Category = "cod2019_tac",
+		Bone = "tag_laser_attach",
+		Pos = Vector(1.2, 0, -0.1),
+		Ang = Angle(0, 0, -180),
+		InstalledElements = { "rail_laser" },
+		ExcludeElements = { "barrel_m16" },
+	},
+	{ -- 4
+		PrintName = ARC9:GetPhrase("mw19_category_optic"),
 		DefaultIcon = Material("entities/defattachs/optic.png", "mips smooth"),
-        Bone = "tag_holo",
-        Pos = Vector(1.5, 0, -0.1),
+		Bone = "tag_holo",
+		Pos = Vector(1.5, 0, -0.1),
 		Icon_Offset = Vector(0, 0, 0.5),
-        Category = {"cod2019_optic"},
-		InstalledElements = {"sight_back_none","sight_front_none"},
-    },
-    { -- 5
-        PrintName = ARC9:GetPhrase("mw19_category_stock"),
+		Category = { "cod2019_optic" },
+		InstalledElements = { "sight_back_none", "sight_front_none" },
+	},
+	{ -- 5
+		PrintName = ARC9:GetPhrase("mw19_category_stock"),
 		DefaultIcon = Material("entities/defattachs/stock-ar.png", "mips smooth"),
-        Category = {"cod2019_tube"},
-        Bone = "tag_stock_attach",
-        Pos = Vector(0.34, 0, -0.02),
+		Category = { "cod2019_tube" },
+		Bone = "tag_stock_attach",
+		Pos = Vector(0.34, 0, -0.02),
 		Icon_Offset = Vector(0, 0, 0),
-		InstalledElements = {"stock_none"},
+		InstalledElements = { "stock_none" },
 		RejectAttachments = {
 			["cod2019_stock_none"] = true,
 			["cod2019_stock_m4"] = true,
 		},
-    },
-    { -- 6
-        PrintName = ARC9:GetPhrase("mw19_category_underbarrel"),
+	},
+	{ -- 6
+		PrintName = ARC9:GetPhrase("mw19_category_underbarrel"),
 		DefaultIcon = Material("entities/defattachs/grip.png", "mips smooth"),
-        Category = "cod2019_grip",
-        Bone = "tag_grip_attach",
-        Pos = Vector(2, -0.04, -0.08),
-        Ang = Angle(0, 0, 180),
-		InstalledElements = {"rail_grip"},
-		ExcludeElements = {"barrel_custom2"},
+		Category = "cod2019_grip",
+		Bone = "tag_grip_attach",
+		Pos = Vector(2, -0.04, -0.08),
+		Ang = Angle(0, 0, 180),
+		InstalledElements = { "rail_grip" },
+		ExcludeElements = { "barrel_custom2" },
 		RejectAttachments = {
 			["cod2019_grips_bipod_alt"] = true,
 		},
-    },
-    { -- 7
-        PrintName = ARC9:GetPhrase("mw19_category_magazine"),
+	},
+	{ -- 7
+		PrintName = ARC9:GetPhrase("mw19_category_magazine"),
 		DefaultIcon = Material("entities/defattachs/magazine-ar.png", "mips smooth"),
 		Bone = "tag_mag_attach",
-        Category = {"cod2023_pcharlie9_magext"},
-        Pos = Vector(0, 0, 0),
+		Category = { "cod2023_pcharlie9_magext" },
+		Pos = Vector(0, 0, 0),
 		Icon_Offset = Vector(-0.2, 0, 0),
-    },
-    { -- 8
-        PrintName = ARC9:GetPhrase("mw19_category_ammo"),
+	},
+	{ -- 8
+		PrintName = ARC9:GetPhrase("mw19_category_ammo"),
 		DefaultIcon = Material("arc9/def_att_icons/ammotype.png", "mips smooth"),
-        Bone = "tag_mag_attach",
-		Category = {"cod2019_ammo"},
+		Bone = "tag_mag_attach",
+		Category = { "cod2019_ammo" },
 		Pos = Vector(-1.5, 0, 0),
 		Icon_Offset = Vector(-0.4, 0, 0),
-    },
-    { -- 9
-        PrintName = ARC9:GetPhrase("mw19_category_reargrip"),
+	},
+	{ -- 9
+		PrintName = ARC9:GetPhrase("mw19_category_reargrip"),
 		DefaultIcon = Material("entities/defattachs/reargrip-ar.png", "mips smooth"),
-        Category = "",
-        Bone = "tag_pistolgrip_attach",
-        Pos = Vector(0, 0, 0),
+		Category = "",
+		Bone = "tag_pistolgrip_attach",
+		Pos = Vector(0, 0, 0),
 		Icon_Offset = Vector(-1.3, 0, -2),
-    },
-    { -- 10
-        PrintName = ARC9:GetPhrase("mw19_category_perk"),
-        Category = {"cod2019_perks","cod2019_perks_soh","cod2019_perks_burst"},
-        Bone = "tag_attachments",
-        Pos = Vector(3.5, 0, -3.5),
+	},
+	{ -- 10
+		PrintName = ARC9:GetPhrase("mw19_category_perk"),
+		Category = { "cod2019_perks", "cod2019_perks_soh", "cod2019_perks_burst" },
+		Bone = "tag_attachments",
+		Pos = Vector(3.5, 0, -3.5),
 		Icon_Offset = Vector(-0.3, -0.6, 0.3),
-    },
-	
+	},
+
 	-- Unofficial
-	
-    { -- 11
-        PrintName = ARC9:GetPhrase("mw19_category_receiver"),
-        Category = "cod2019_m4_receiver",
-        Bone = "tag_attachments",
-        Pos = Vector(0, 0, 0),
+
+	{ -- 11
+		PrintName = ARC9:GetPhrase("mw19_category_receiver"),
+		Category = "cod2019_m4_receiver",
+		Bone = "tag_attachments",
+		Pos = Vector(0, 0, 0),
 		Icon_Offset = Vector(5, 0, 0.5),
 		Hidden = false,
-    },
-	
+	},
+
 	-- Cosmetics
-    { -- 12
-        PrintName = ARC9:GetPhrase("mw19_category_skins"),
-        Bone = "tag_cosmetic",
-        Pos = Vector(7, 0, 3),
-        Category = "cod2019_skins_m4",
+	{ -- 12
+		PrintName = ARC9:GetPhrase("mw19_category_skins"),
+		Bone = "tag_cosmetic",
+		Pos = Vector(7, 0, 3),
+		Category = "cod2019_skins_m4",
 		CosmeticOnly = true,
-    },
-    { -- 13
-        PrintName = ARC9:GetPhrase("mw19_category_camouflage"),
-        Category = {"universal_camo"},
-        Bone = "tag_cosmetic",
-        Pos = Vector(5, 0, 3),
-        CosmeticOnly = true,
-    },
-    { -- 14
-        PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_a.mdl",
-        Category = "stickers",
-        Bone = "tag_cosmetic",
-        Pos = Vector(3, 0, 3),
+	},
+	{ -- 13
+		PrintName = ARC9:GetPhrase("mw19_category_camouflage"),
+		Category = { "universal_camo" },
+		Bone = "tag_cosmetic",
+		Pos = Vector(5, 0, 3),
+		CosmeticOnly = true,
+	},
+	{ -- 14
+		PrintName = ARC9:GetPhrase("mw19_category_sticker"),
+		StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_a.mdl",
+		Category = "stickers",
+		Bone = "tag_cosmetic",
+		Pos = Vector(3, 0, 3),
 		Hidden = true,
-    },
-    { -- 15
-        PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_b.mdl",
-        Category = "stickers",
-        Bone = "tag_cosmetic",
-        Pos = Vector(1, 0, 3),
+	},
+	{ -- 15
+		PrintName = ARC9:GetPhrase("mw19_category_sticker"),
+		StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_b.mdl",
+		Category = "stickers",
+		Bone = "tag_cosmetic",
+		Pos = Vector(1, 0, 3),
 		Hidden = true,
-    },
-    { -- 16
-        PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_c.mdl",
-        Category = "stickers",
-        Bone = "tag_cosmetic",
-        Pos = Vector(-1, 0, 3),
+	},
+	{ -- 16
+		PrintName = ARC9:GetPhrase("mw19_category_sticker"),
+		StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_c.mdl",
+		Category = "stickers",
+		Bone = "tag_cosmetic",
+		Pos = Vector(-1, 0, 3),
 		Hidden = true,
-    },
-    { -- 17
-        PrintName = ARC9:GetPhrase("mw19_category_sticker"),
-        StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_d.mdl",
-        Category = "stickers",
-        Bone = "tag_cosmetic",
-        Pos = Vector(-3, 0, 3),
+	},
+	{ -- 17
+		PrintName = ARC9:GetPhrase("mw19_category_sticker"),
+		StickerModel = "models/weapons/cod2019/stickers/rif_m4_decal_d.mdl",
+		Category = "stickers",
+		Bone = "tag_cosmetic",
+		Pos = Vector(-3, 0, 3),
 		Hidden = true,
-    },
-    { -- 18
-        PrintName = ARC9:GetPhrase("mw19_category_charm"),
-        CosmeticOnly = true,
-        Category = {"charm"},
-        Bone = "tag_cosmetic",
-        Pos = Vector(0, 0, 0),
+	},
+	{ -- 18
+		PrintName = ARC9:GetPhrase("mw19_category_charm"),
+		CosmeticOnly = true,
+		Category = { "charm" },
+		Bone = "tag_cosmetic",
+		Pos = Vector(0, 0, 0),
 		Ang = Angle(0, 0, 0),
 		Icon_Offset = Vector(-5.5, 0, 3),
-    },
-    { -- 19
-        PrintName = ARC9:GetPhrase("mw19_category_stats"),
-        Category = {"killcounter","killcounter2"},
-        Bone = "tag_cosmetic",
-        Pos = Vector(0, 0, -1),
+	},
+	{ -- 19
+		PrintName = ARC9:GetPhrase("mw19_category_stats"),
+		Category = { "killcounter", "killcounter2" },
+		Bone = "tag_cosmetic",
+		Pos = Vector(0, 0, -1),
 		Icon_Offset = Vector(-7.5, 0, 4),
 		CosmeticOnly = true,
-    },
+	},
 }
 
 SWEP.GripPoseParam = 0.4
@@ -1119,35 +1287,33 @@ SWEP.CodAngledGripPoseParam = 40
 
 -- Warzone-esque Stats; Add here to change only when using Warzone Stats variable.
 if GetConVar("arc9_mw19_stats_warzone"):GetBool() then
+	-------------------------- DAMAGE PROFILE
+	SWEP.DamageMax = 26
+	SWEP.DamageMin = 23
 
--------------------------- DAMAGE PROFILE
-SWEP.DamageMax = 26
-SWEP.DamageMin = 23
+	SWEP.RangeMin = 27 / ARC9.HUToM
+	SWEP.RangeMax = 27 / ARC9.HUToM
 
-SWEP.RangeMin = 27 / ARC9.HUToM
-SWEP.RangeMax = 27 / ARC9.HUToM
+	SWEP.BodyDamageMults = {
+		[HITGROUP_HEAD] = 1.475,
+		[HITGROUP_CHEST] = 1,
+		[HITGROUP_STOMACH] = 1,
+		[HITGROUP_LEFTARM] = 1,
+		[HITGROUP_RIGHTARM] = 1,
+		[HITGROUP_LEFTLEG] = 1,
+		[HITGROUP_RIGHTLEG] = 1,
+	}
 
-SWEP.BodyDamageMults = {
-    [HITGROUP_HEAD] = 1.475,
-    [HITGROUP_CHEST] = 1,
-    [HITGROUP_STOMACH] = 1,
-    [HITGROUP_LEFTARM] = 1,
-    [HITGROUP_RIGHTARM] = 1,
-    [HITGROUP_LEFTLEG] = 1,
-    [HITGROUP_RIGHTLEG] = 1,
-}
+	-------------------------- PHYS BULLET BALLISTICS
 
--------------------------- PHYS BULLET BALLISTICS
+	SWEP.PhysBulletMuzzleVelocity = 760 / ARC9.HUToM
 
-SWEP.PhysBulletMuzzleVelocity = 760 / ARC9.HUToM
+	-------------------------- FIREMODES
 
--------------------------- FIREMODES
+	SWEP.RPM = 882
 
-SWEP.RPM = 882
+	-------------------------- HANDLING
 
--------------------------- HANDLING
-
-SWEP.AimDownSightsTime = 0.24 -- How long it takes to go from hip fire to aiming down sights.
-SWEP.SprintToFireTime = 0.25 -- How long it takes to go from sprinting to being able to fire.
-
+	SWEP.AimDownSightsTime = 0.24 -- How long it takes to go from hip fire to aiming down sights.
+	SWEP.SprintToFireTime = 0.25 -- How long it takes to go from sprinting to being able to fire.
 end
